@@ -1,0 +1,101 @@
+
+<style type="text/css">
+::-webkit-input-placeholder {
+  color: white !important; 
+}
+:-moz-placeholder {
+  color: white !important; 
+}
+:-ms-input-placeholder {
+  /* IE10+ */
+  color: white !important; 
+}
+</style>
+
+
+  <ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onClick()">
+        <ion-icon name="arrow-dropleft" ></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Create</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only  (click)="toCategories()">
+        <ion-icon name="arrow-dropright"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
+
+<form [formGroup]="myForm" (ngSubmit)="saveData()">
+ <ion-card>
+     
+        <ion-item >
+          <ion-icon name="person" item-left></ion-icon>
+          <ion-label floating> Username </ion-label>
+          <ion-input formControlName="name" type="text"> </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="person" item-left></ion-icon>
+          <ion-label floating> LastName </ion-label>
+          <ion-input formControlName="name" type="text"> </ion-input>
+        </ion-item>
+
+   
+
+
+      <ion-item>
+        <ion-icon name="mail" item-left></ion-icon>
+        <ion-label floating >E-mail</ion-label>
+        <ion-input formControlName="email" type="email" ></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <ion-label stacked >Fecha de nacimiento</ion-label>
+        <ion-datetime formControlName="dateBirth" displayFormat="MM-DD-YYYY" placeholder="MM-DD-YYY"></ion-datetime>
+      </ion-item>
+      <div formGroupName="passwordRetry">
+        <ion-item>
+          <ion-icon name="eye" item-left></ion-icon>
+          <ion-label floating>Password</ion-label>
+          <ion-input formControlName="password" type="password" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="eye" item-left></ion-icon>
+          <ion-label floating >Confirm password</ion-label>
+          <ion-input formControlName="passwordConfirmation" type="password"></ion-input>
+        </ion-item>
+      </div>
+      <ion-row radio-group formControlName="gender">
+        <ion-item on-drag-left="s">
+          <ion-icon name="woman" item-left></ion-icon>
+          <ion-label>Woman</ion-label>
+          <ion-radio value="2"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="man" item-left></ion-icon>
+          <ion-label>Man</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+      </ion-row>
+    </ion-card>
+    <div padding>
+    
+      <button style="margin-top: 15px;height: 35px;font-size: 14px;background: #10ABF4;" ion-button  type="submit" [disabled]="!myForm.valid" block  (click)="presentToast()">Done</button>
+
+    </div>
+</form>
+
+  
+
+</ion-content>

@@ -1,0 +1,72 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<style type="text/css">
+::-webkit-input-placeholder {
+  color: white !important; 
+}
+:-moz-placeholder {
+  color: white !important; 
+}
+:-ms-input-placeholder {
+  /* IE10+ */
+  color: white !important; 
+}
+</style>
+
+<ion-content padding class="login" style="background-image:url('https://unsplash.it/2200/4300?image=579');background-repeat: no-repeat;background-size: 100% 100%">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4></ion-col>
+      <ion-col col-4 style="margin-left: auto;margin-right: auto;display: block;">
+        
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
+  </ion-grid>
+
+<div align="center">
+  <img src="assets/img/tuPlan-logo.png"/>
+</div>
+  <ion-list no-lines >
+    
+
+        <ion-card>
+        <ion-item>
+          <ion-icon name="mail" item-left></ion-icon>
+          <ion-input type="email" placeholder="Email Input"></ion-input>
+        </ion-item>
+        </ion-card>
+
+
+        <ion-card>
+        <ion-item>
+          <ion-icon name="lock" item-left></ion-icon>
+          <ion-label color="dark" stacked>Password</ion-label>
+          <ion-input type="password" placeholder="Password Input"></ion-input>
+        </ion-item>
+        </ion-card>
+      </ion-list>
+
+  <button style="margin-top: 15px;height: 35px;font-size: 14px;background-color: #E6E642; color:black;" ion-button  round  (click)="toCategories()"><p>Login</p></button>
+
+  <div text-center style="text-decoration: underline;margin-top:20px;color:white;font-size: 14px;"  (click)="forgotPwd()">Forgot Password</div>
+  <button ion-button style="background-color: transparent;color:white;border-color:white;border:1px solid white;margin-top:20px;height: 35px;font-size: 14px;"  block  (click)="signUp()" outline>Register</button>
+<hr>
+
+<p>OR</p>
+      <button ion-button color="primary" ion-left round>
+      <ion-icon name="logo-facebook"></ion-icon>
+      <div>Login with Facebook</div></button>
+      
+      <!--<button ion-button color="danger" ion-left block>
+      <ion-icon name="logo-google"></ion-icon>
+      <div>Login with Google</div></button>
+-->
+
+
+</ion-content>
+

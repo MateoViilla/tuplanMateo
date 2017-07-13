@@ -1,0 +1,74 @@
+page-categoria{
+    .backgound-color{
+        background-color: #E6E642;
+    }
+
+    .backgound-image {
+        background-image: url('C:\Users\mateo\Desktop\login\aticologin\resources\joseph-gonzalez-110827.jpg');
+        width: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+     
+
+        .item{
+        background: rgba(100, 100, 100, 0.6px);
+        color: white;
+        border-radius: 10px;
+        }
+    
+    .card-background-page {
+
+        ion-card {
+            position: relative;
+            text-align: center;
+            height: 60px;
+            width: relative;
+        }
+
+        
+        ion-card.card {
+        //background: rgb(232,230, 230, 0.6px);
+        background: rgba(232, 230, 230, 0.6px);
+        border-radius: 10px;    
+        }
+
+        .card-title {
+            position: absolute;
+            top: 20%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: #fff;
+            border-bottom-color: black rgba(100, 100, 100, 0.6px);
+        }
+
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 70%;
+            width: 100%;
+            color: #fff;
+        }
+
+        }
+        ion-slides{
+            height: 200px;
+            width: 100%;
+        }
+
+        .titulo {
+        height: 40px;
+        top: 80%;
+        width:100%;
+        position: static; 
+        background: rgba(232, 230, 230, 0.6px);
+        border-radius: 0px;  
+        text-align: center;
+            
+            
+        }
+
+        
+}

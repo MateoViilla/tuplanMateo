@@ -1,0 +1,33 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>sector</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="card-background-page" style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
+  <!-- slider https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/navigation/basic -->
+      <ion-slides pager>
+        <ion-slide *ngFor="let slide of slides">
+          <img [src]="slide.image" class="slide-image"/>
+        </ion-slide>
+      </ion-slides>
+
+      <h1 style="text-align: center; color: white;">Select a Zone</h1>
+
+  
+
+  <ion-card *ngFor="let sector of sectors" (click)="nav(sector)">
+     <img [src]="sector.image" class="slide-image"/>
+        <!-- Photo by modesta-zemgulyte on Unsplash-->
+        <div class="card-title">  {{sector.sectorName}}</div>
+        <div class="card-subtitle">41 Listings</div>
+    </ion-card>
+
+    <button (click)="mostrar()">mostrar categoria</button>
+
+
+</ion-content>
