@@ -59,13 +59,24 @@ categorias  = [
       listing: "10",
     }
 ];
+
+  
+ user
   
    @ViewChild(Slides) slide: Slides;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.user = navParams.get('userName');
   }
 
-
-  
+  ionViewDidLoad() {
+    if(this.user == ""){
+   console.log("no hay usuario")   
+    }
+    else
+     console.log(this.user);
+  }
+ 
 
   slideChanged() {
     let currentIndex = this.slide.getActiveIndex();
@@ -77,7 +88,7 @@ categorias  = [
    // console.log(categoria.categoriaName);
     this.navCtrl.push(SectorPage, {
       categoriaName: categoria.categoriaName,
-      CategoriaImage: categoria.CategoriaImage
+      userName: this.user
     })
   }
 

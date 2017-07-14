@@ -8,9 +8,16 @@ import { CategoriaPage } from '../categoria/categoria';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  user = {
+    userName:"",
+    password:""
+  };
 
   constructor(public navCtrl: NavController) {
 
+  }
+    logForm() {
+    console.log(this.user);
   }
 
   signUp(){
@@ -18,7 +25,9 @@ export class HomePage {
   }
 
   public toCategories(){
-    this.navCtrl.push(CategoriaPage);
+    this.navCtrl.push(CategoriaPage,{
+      userName: this.user.userName,
+    });
   }
 
   

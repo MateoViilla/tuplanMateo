@@ -18,26 +18,19 @@
 </style>
 
 <ion-content padding class="login" style="background-image:url('https://unsplash.it/2200/4300?image=579');background-repeat: no-repeat;background-size: 100% 100%">
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4></ion-col>
-      <ion-col col-4 style="margin-left: auto;margin-right: auto;display: block;">
-        
-      </ion-col>
-      <ion-col col-4></ion-col>
-    </ion-row>
-  </ion-grid>
+  
+
 
 <div align="center">
   <img src="assets/img/tuPlan-logo.png"/>
 </div>
-  <ion-list no-lines >
-    
+ <form (ngSubmit)="logForm()">
+      <ion-list no-lines >
 
         <ion-card>
         <ion-item>
           <ion-icon name="mail" item-left></ion-icon>
-          <ion-input type="email" placeholder="Email Input"></ion-input>
+          <ion-input  type="text" [(ngModel)]="user.userName" name="userName" placeholder="Email Input"></ion-input>
         </ion-item>
         </ion-card>
 
@@ -46,15 +39,22 @@
         <ion-item>
           <ion-icon name="lock" item-left></ion-icon>
           <ion-label color="dark" stacked>Password</ion-label>
-          <ion-input type="password" placeholder="Password Input"></ion-input>
+          <ion-input [(ngModel)]="user.password" name="password" type="password" placeholder="Password Input"></ion-input>
         </ion-item>
         </ion-card>
-      </ion-list>
 
-  <button style="margin-top: 15px;height: 35px;font-size: 14px;background-color: #E6E642; color:black;" ion-button  round  (click)="toCategories()"><p>Login</p></button>
+      </ion-list>
+        
+        <button ion-button type="submit" style="margin-top: 15px;height: 35px;font-size: 14px;background-color: #E6E642; color:black;" ion-button  round  (click)="toCategories()"><p>Login</p></button>
+        
+  </form>
+
+    
+
+
 
   <div text-center style="text-decoration: underline;margin-top:20px;color:white;font-size: 14px;"  (click)="forgotPwd()">Forgot Password</div>
-  <button ion-button style="background-color: transparent;color:white;border-color:white;border:1px solid white;margin-top:20px;height: 35px;font-size: 14px;"  block  (click)="signUp()" outline>Register</button>
+  <button ion-button style="background-color: transparent;color:white;border-color:white;border:1px solid white;margin-top:20px;height: 35px;font-size: 14px;"  round  (click)="signUp()" outline>Register</button>
 <hr>
 
 <p>OR</p>
@@ -66,6 +66,9 @@
       <ion-icon name="logo-google"></ion-icon>
       <div>Login with Google</div></button>
 -->
+
+
+ 
 
 
 </ion-content>

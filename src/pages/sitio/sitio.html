@@ -24,20 +24,20 @@
       <ion-card ion-card full color="light"><h1 style="text-align: center;" clear >Select Category</h1>  </ion-card>
 
 <ion-list>
-    <ion-card  *ngFor="let discoteca of discotecas" >
+    <ion-card  *ngFor=" let lista of listas" >
     <ion-card-header>
       <ion-item>
       
       <ion-thumbnail item-start>
-        <img [src]="discoteca.image">
+        <img [src]="lista.image">
       </ion-thumbnail>
-      <h2>{{discoteca.discotecaName}}</h2>
+      <h2>{{lista.Name}}</h2>
       <ion-note ><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></ion-note>
       
       </ion-item>
     </ion-card-header>
     <ion-card-content>
-      <p item-start>{{discoteca.descripcion}}</p>
+      <p item-start>{{lista.descripcion}}</p>
     </ion-card-content>
     </ion-card >
 </ion-list>

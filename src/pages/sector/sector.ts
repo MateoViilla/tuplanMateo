@@ -48,30 +48,32 @@ sectors = [
   ];
 
 
-  public categoriaName;
-  public categoriaImage;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.categoriaName = navParams.get('categoriaName');
-    this.categoriaImage = navParams.get('categoriaImage');
     
   }
 
   ionViewDidLoad() {
     
-    console.log("la categoria es:"+ this.categoriaName);
+    console.log("la categoria es:"+ this.navParams.get('categoriaName'));
+    console.log("El usuario es:"+ this.navParams.get('userName'));
+    
     
   }
 
   nav(sector){
-    this.navCtrl.push(SitioPage, {'value':sector});
-    //  console.log(sector.title);
+    this.navCtrl.push(SitioPage, {
+      categoriaName: this.navParams.get('categoriaName'),
+      sectorName: sector.sectorName,
+      userName: this.navParams.get('userName')
+    });
+  
 
   }
   
 
   mostrar(){   
-    console.log(this.categoriaName);
+   // console.log(this.categoriaName);
   }
 
   

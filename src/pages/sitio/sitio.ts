@@ -13,57 +13,57 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'sitio.html',
 })
 export class SitioPage {
-/*
+
   Restaurants =[ 
     {
-      dicotecaName: "Basílica",
+      Name: "Basílica",
       descripcion: "Description of Basílica",
       puntaje: 10,
        image: "assets/img/modesta-zemgulyte-194520.jpg",
     },
     {
-      dicotecaName: "Al rojo",
+      Name: "Al rojo",
       descripcion: "Description of Al rojo",
       puntaje: 18,
        image: "assets/img/modesta-zemgulyte-194520.jpg",
     },
     {
-      dicotecaName: "Patria mía",
+      Name: "Patria mía",
       descripcion: "Description of Patria mía",
       puntaje: 18,
        image: "assets/img/modesta-zemgulyte-194520.jpg",
     },
     {
-      dicotecaName: "Ay Caramba",
+      Name: "Ay Caramba",
       descripcion: "Description of Ay Caramba",
       puntaje: 18,
        image: "assets/img/modesta-zemgulyte-194520.jpg",
     },
     {
-      dicotecaName: "Triada",
+      Name: "Triada",
       descripcion: "Description of Triada",
       puntaje: 18,
        image: "assets/img/modesta-zemgulyte-194520.jpg",
     }
 
-  ];*/
-  /*
+  ];
+  
   Bar = [
     {
-      dicotecaName: "Locodeluxe",
+      Name: "Locodeluxe",
       descripcion: "Description of Locodeluxe",
       puntaje: 10,
        image: "assets/img/modesta-zemgulyte-194520.jpg",
     },
     {
-      dicotecaName: "Ocatavia",
+      Name: "Ocatavia",
       descripcion: "Description of Ocatavia",
       puntaje: 10,
        image: "assets/img/modesta-zemgulyte-194520.jpg",
     },
   ];
 
-  */
+  
   slides = [
     {
       image: "https://unsplash.it/200/300?image=892",
@@ -79,39 +79,89 @@ export class SitioPage {
 
   discotecas = [
     {
-      discotecaName: "Babylon",
+      Name: "Babylon",
       descripcion: "Description of Babylon",
       puntaje: 10,
       image: "https://unsplash.it/200/300?image=1062",
     },
     {
-      discotecaName: "Bendito Seas",
+      Name: "Bendito Seas",
       descripcion: "Description of Bendito Seas",
       puntaje: 10,
       image: "https://unsplash.it/200/300?image=1074",
     },
     {
-      discotecaName: "Sixtina",
+      Name: "Sixtina",
       descripcion: "Description of Sixtina",
       puntaje: 10,
       image: "https://unsplash.it/200/300?image=1024",
     }
   ];
-  
 
-    sector 
-    title 
-    name
+  Xtreme_sports = [
+    {
+      Name: "Parapente",
+      descripcion: "Description of Parapente",
+      puntaje: 10,
+      image: "https://unsplash.it/200/300?image=1062",
+    },
+    {
+      Name: "Paintball",
+      descripcion: "Description of Paintball",
+      puntaje: 10,
+      image: "https://unsplash.it/200/300?image=1074",
+    },
+    {
+      Name: "Cuatrimoto",
+      descripcion: "Description of Cuatrimoto",
+      puntaje: 10,
+      image: "https://unsplash.it/200/300?image=1024",
+    }
+  ];
   
+  listas
+
+    
+  categoriaName
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  this.sector = this.navParams.data;
+  this.categoriaName = navParams.get('categoriaName');
   }
 
   ionViewDidLoad() {
-   //console.log(this.navParams.get('title'));
+   console.log(this.navParams.data);
+   if(this.categoriaName == "Restaurants"){
+      this.listas = this.Restaurants;
+    }
+    else
+    if(this.categoriaName == "Bar"){
+      this.listas = this.Bar;
+    }
+    else 
+    if(this.categoriaName == "Disco"){
+      this.listas = this.discotecas;
+    }
+    else 
+    if(this.categoriaName == "Xtreme sports"){
+      this.listas = this.Xtreme_sports;
+    }
   }
 
-  mostrar(){
+  public cargarDatos(categoriaName){
+    if(categoriaName == "Restaurants"){
+      this.listas = this.Restaurants;
+    }
+    else
+    if(categoriaName == "Bar"){
+      this.listas = this.Bar;
+    }
+    else 
+    if(categoriaName == "Disco"){
+      this.listas = this.discotecas;
+    }
+    else 
+    if(categoriaName == "Xtreme sports"){
+      this.listas = this.Xtreme_sports;
+    }
   }
 
 
