@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { SectorPage } from '../sector/sector';
+import { BtnMagicoPage } from '../boton-magico/btn_magico';
+
 
 
 
@@ -94,6 +96,10 @@ categorias  = [
 
   clicado(){
     
+  }
+
+  toBtnMagico(){
+    this.navCtrl.push(BtnMagicoPage);
   }
 
 }

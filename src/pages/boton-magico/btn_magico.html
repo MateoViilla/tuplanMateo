@@ -1,0 +1,32 @@
+
+
+<ion-content padding id="magico" style="background-color: black" >
+    <ion-grid>
+    <ion-row justify-content-start>
+    <ion-col>
+       <button ion-button  small outline (click)="toCategories()">Cerrar</button>
+    </ion-col>
+    <ion-col>
+      <!-- <button ion-button  small outline style="margin-left:50%;margin-right:5%">Atras</button> -->
+    </ion-col>
+  </ion-row>
+    </ion-grid>
+    <h1 text-center style="color:white">Bienvenido a tu asistente mágico</h1>
+    <p text-center style="color:white;margin-top: 20%">¿Cuentanos que tipo de plan tienes en mente? escoge a continuacion una categoria</p>
+   
+  
+    <ion-list style="margin-top: 20%">
+        <ion-item>
+            <ion-label>Escoge uno</ion-label>
+            <ion-select [(ngModel)]="Categories">
+            <ion-option value="Discoteca">Discoteca</ion-option>
+            <ion-option value="Fonda">Fonda</ion-option>
+            <ion-option value="Restaurante">Restaurante</ion-option>
+            <ion-option value="Deporte_Extremo">Deporte Extremo</ion-option>
+            
+            </ion-select>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block round outline style="margin-top:40%;margin-bottom:5%" (click)="toBtnMagicoLugar()">Siguiente</button>
+</ion-content>

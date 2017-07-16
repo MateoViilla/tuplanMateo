@@ -3,4 +3,12 @@ page-sitio {
             height: 200px;
             width: 100%;
         }
+
+        ion-card.card {
+        background: rgba(232, 230, 230, 0.9px);
+        border-radius: 10px; 
+    }
+    .item {
+        background: rgba(232,230,230,0px); 
+    }
 }

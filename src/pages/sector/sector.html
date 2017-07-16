@@ -8,18 +8,17 @@
 </ion-header>
 
 
-<ion-content padding class="card-background-page" style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
+<ion-content   class="card-background-page" style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
   <!-- slider https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/navigation/basic -->
+  
       <ion-slides pager>
         <ion-slide *ngFor="let slide of slides">
           <img [src]="slide.image" class="slide-image"/>
         </ion-slide>
       </ion-slides>
 
-       <h1 style="text-align: center; color: black;" clear >Select Category</h1>  
-    
-
-  
+     <div style="background: rgba(232, 230, 230, 0.9px); border-radius: 10px; " full color="light"><h1 style="text-align: center;" clear >Select Sector</h1>  </div>
+<div padding>
 
   <ion-card *ngFor="let sector of sectors" (click)="nav(sector)">
      <img [src]="sector.image" class="slide-image"/>
@@ -29,6 +28,6 @@
     </ion-card>
 
     <button (click)="mostrar()">mostrar categoria</button>
-
+</div>
 
 </ion-content>

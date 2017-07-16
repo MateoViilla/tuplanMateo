@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding class="card-background-page" style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
+<ion-content  class="card-background-page" style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
     <!--<h1>El sector es:{{sector.value}}</h1>-->
 
       <ion-slides pager full>
@@ -21,10 +21,10 @@
           <img [src]="slide.image" class="slide-image"/>
         </ion-slide>
       </ion-slides>
-      <ion-card ion-card full color="light"><h1 style="text-align: center;" clear >Select Category</h1>  </ion-card>
-
+      <ion-card ion-card full color="light"><h1 style="text-align: center;" clear >Select establishment</h1>  </ion-card>
+<div padding>
 <ion-list>
-    <ion-card  *ngFor=" let lista of listas" >
+    <ion-card  *ngFor=" let lista of listas" (click)="nav()" >
     <ion-card-header>
       <ion-item>
       
@@ -42,6 +42,6 @@
     </ion-card >
 </ion-list>
 
-
+</div>
  
 </ion-content>

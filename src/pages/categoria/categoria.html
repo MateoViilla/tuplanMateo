@@ -13,11 +13,12 @@
 
 <ion-content class="card-background-page"  style="background-repeat: no-repeat;background-size: 100% 100%;background-color: #E6E642;">
 
-      <ion-fab top right edge>
-        <button ion-fab mini><ion-icon name="star"></ion-icon></button>
+      <ion-fab bottom right edge  style="margin-bottom:10%">
+        <button ion-fab mini (click)="toBtnMagico()"><ion-icon name="star"></ion-icon></button>
         <ion-fab-list>
         </ion-fab-list>
       </ion-fab>
+
 
       <ion-slides pager full>
         <ion-slide *ngFor="let slide of slides">
@@ -25,7 +26,7 @@
         </ion-slide>
       </ion-slides>
 
-   <h1 style="text-align: center; color: black;" clear >Select Category</h1>  
+   <div class="title-ppal" full ><h1 style="text-align: center;" clear >Select Category</h1>  </div>
     
 
   

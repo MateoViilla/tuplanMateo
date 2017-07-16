@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DescriptionPage } from '../description/description';
+
 
 /**
  * Generated class for the SitioPage page.
@@ -66,13 +68,13 @@ export class SitioPage {
   
   slides = [
     {
-      image: "https://unsplash.it/200/300?image=892",
+      image: "https://unsplash.it/1000/800?image=892",
     },
     {
-      image: "https://unsplash.it/200/300?image=882",
+      image: "https://unsplash.it/1000/800?image=882",
     },
     {
-      image: "https://unsplash.it/200/300?image=837",
+      image: "https://unsplash.it/1000/800?image=837",
     }
 ];
 
@@ -164,6 +166,8 @@ export class SitioPage {
     }
   }
 
-
+  nav(){
+      this.navCtrl.push(DescriptionPage);
+  }
 
 }

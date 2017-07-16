@@ -10,6 +10,12 @@ import { RegistroPage } from '../pages/Registro/registro';
 import { CategoriaPage } from '../pages/categoria/categoria';
 import { SectorPage } from '../pages/sector/sector';
 import { SitioPage } from '../pages/sitio/sitio';
+import { DescriptionPage } from '../pages/description/description';
+import { BtnMagicoPage } from '../pages/boton-magico/btn_magico';
+import { BtnMagicoLugarPage } from '../pages/boton-magico-lugar/btn_magico_lugar';
+
+
+
 
 
 
@@ -20,7 +26,10 @@ import { SitioPage } from '../pages/sitio/sitio';
     CategoriaPage,
     RegistroPage,
     SectorPage,
-    SitioPage
+    SitioPage,
+    DescriptionPage,
+    BtnMagicoPage,
+    BtnMagicoLugarPage
   ],
   imports: [
     BrowserModule,
@@ -29,11 +38,14 @@ import { SitioPage } from '../pages/sitio/sitio';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    BtnMagicoLugarPage,    
     RegistroPage,
     CategoriaPage,
     HomePage,
     SectorPage,
-    SitioPage
+    DescriptionPage,
+    SitioPage,
+    BtnMagicoPage
   ],
   providers: [
     StatusBar,
