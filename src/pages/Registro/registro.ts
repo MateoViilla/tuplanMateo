@@ -46,6 +46,8 @@ export class RegistroPage {
     name: ['', Validators.required],
     lastName: ['', Validators.required],
     email: ['', Validators.required],
+
+    phone: ['', Validators.required],
     dateBirth: ['', Validators.required],
     passwordRetry: this.formBuilder.group({
       password: ['', Validators.required],

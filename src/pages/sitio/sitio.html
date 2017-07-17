@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="azul">
     <ion-title>sitio</ion-title>
   </ion-navbar>
 
@@ -21,7 +21,7 @@
           <img [src]="slide.image" class="slide-image"/>
         </ion-slide>
       </ion-slides>
-      <ion-card ion-card full color="light"><h1 style="text-align: center;" clear >Select establishment</h1>  </ion-card>
+      <div ><h1 style="text-align: center;" clear >Select establishment</h1>  </div>
 <div padding>
 <ion-list>
     <ion-card  *ngFor=" let lista of listas" (click)="nav()" >

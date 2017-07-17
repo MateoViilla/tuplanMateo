@@ -12,27 +12,23 @@
 }
 </style>
 
+<ion-header>
 
-  <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons start>
-      <button ion-button icon-only (click)="onClick()">
-        <ion-icon name="arrow-dropleft" ></ion-icon>
-      </button>
-    </ion-buttons>
+  <ion-navbar  color="azul">
+    <ion-title>Categories</ion-title>
 
-    <ion-title>Create</ion-title>
-
-    <ion-buttons end>
-      <button ion-button icon-only  (click)="toCategories()">
-        <ion-icon name="arrow-dropright"></ion-icon>
-      </button>
-    </ion-buttons>
-
-  </ion-toolbar>
+<ion-buttons end>
+    <button ion-button icon-only  (click)="toCategories()">
+      <ion-icon name="arrow-dropright"></ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+  
 </ion-header>
 
-<ion-content padding style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
+ 
+
+<ion-content padding style="background-image:url('https://unsplash.it/g/2200/4300?blur&image=1067');background-repeat: no-repeat;background-size: 100% 100%">
 
 <form [formGroup]="myForm" (ngSubmit)="saveData()">
  <ion-card>
@@ -88,10 +84,23 @@
           <ion-radio value="1"></ion-radio>
         </ion-item>
       </ion-row>
+       <ion-item>
+        <ion-icon name="call" item-left></ion-icon>
+        <ion-label floating >Phone</ion-label>
+        <ion-input formControlName="phone" type="text" ></ion-input>
+      </ion-item>
+
+ <ion-item>
+        <ion-icon name="flash" item-left></ion-icon>
+        <ion-label floating >Magic Code </ion-label>
+        <ion-input  type="text" ></ion-input>
+      </ion-item>
+
+
     </ion-card>
     <div padding>
     
-      <button style="margin-top: 15px;height: 35px;font-size: 14px;background: #10ABF4;" ion-button  type="submit" [disabled]="!myForm.valid" block  (click)="presentToast()">Done</button>
+      <button style="margin-top: 15px;height: 35px;font-size: 14px;background: azul;" ion-button  type="submit" [disabled]="!myForm.valid" block  (click)="presentToast()">Done</button>
 
     </div>
 </form>

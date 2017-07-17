@@ -13,6 +13,7 @@ import { SitioPage } from '../pages/sitio/sitio';
 import { DescriptionPage } from '../pages/description/description';
 import { BtnMagicoPage } from '../pages/boton-magico/btn_magico';
 import { BtnMagicoLugarPage } from '../pages/boton-magico-lugar/btn_magico_lugar';
+import { GlobalVarProvider } from '../providers/global-var/global-var';
 
 
 
@@ -50,7 +51,8 @@ import { BtnMagicoLugarPage } from '../pages/boton-magico-lugar/btn_magico_lugar
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GlobalVarProvider
   ]
 })
 export class AppModule {}
