@@ -20,6 +20,16 @@ import { GlobalVarProvider } from '../providers/global-var/global-var';
 
 
 
+
+
+
+
+
+
+
+
+
+
 @NgModule({
   declarations: [
     MyApp,
