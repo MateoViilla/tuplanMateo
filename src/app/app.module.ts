@@ -19,6 +19,16 @@ import { BtnMagicoLugarPage } from '../pages/boton-magico-lugar/btn_magico_lugar
 
 
 
+
+
+
+
+
+
+
+
+
+
 @NgModule({
   declarations: [
     MyApp,
