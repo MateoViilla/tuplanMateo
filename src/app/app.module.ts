@@ -10,29 +10,18 @@ import { RegistroPage } from '../pages/Registro/registro';
 import { CategoriaPage } from '../pages/categoria/categoria';
 import { SectorPage } from '../pages/sector/sector';
 import { SitioPage } from '../pages/sitio/sitio';
+import { InicioPage } from '../pages/inicio/inicio';
+
 import { DescriptionPage } from '../pages/description/description';
 import { BtnMagicoPage } from '../pages/boton-magico/btn_magico';
 import { BtnMagicoLugarPage } from '../pages/boton-magico-lugar/btn_magico_lugar';
 import { GlobalVarProvider } from '../providers/global-var/global-var';
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @NgModule({
   declarations: [
     MyApp,
+    InicioPage,
     HomePage,
     CategoriaPage,
     RegistroPage,
@@ -51,6 +40,7 @@ import { GlobalVarProvider } from '../providers/global-var/global-var';
     MyApp,
     BtnMagicoLugarPage,    
     RegistroPage,
+    InicioPage,
     CategoriaPage,
     HomePage,
     SectorPage,

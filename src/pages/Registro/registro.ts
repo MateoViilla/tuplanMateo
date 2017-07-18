@@ -32,8 +32,8 @@ export class RegistroPage {
     this.navCtrl.push(HomePage);
   }
 
-  toCategories(){
-    this.navCtrl.push(CategoriaPage);
+  toHome(){
+    this.navCtrl.push(HomePage);
   }
 
 
@@ -46,7 +46,6 @@ export class RegistroPage {
     name: ['', Validators.required],
     lastName: ['', Validators.required],
     email: ['', Validators.required],
-
     phone: ['', Validators.required],
     dateBirth: ['', Validators.required],
     passwordRetry: this.formBuilder.group({
@@ -54,6 +53,7 @@ export class RegistroPage {
       passwordConfirmation: ['', Validators.required]
     }),
     gender: ['', Validators.required],
+    magicCode: ['']
   });
 }
 
