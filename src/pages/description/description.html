@@ -21,19 +21,15 @@
      <ion-label class="text-tittle">{{configurations.Tittle}}</ion-label>
      <ion-label class="text-subtittle">{{configurations.Description}}</ion-label>
   </div>
-    <button ion-button full  *ngFor="let configurations of configuration" class="button-booking" color="{{configurations.Color}}">Reservar</button>
+    <button ion-button full  *ngFor="let configurations of configuration" class="button-booking" color="{{configurations.Color}}" (click)='presentProfileModal(configurations.Name)'>Reservar</button>
   <ion-label padding style="text-align:center" class="text-tittle-services">Nuestros servicios</ion-label>
     <ion-card class="list-container">
       <ion-list *ngFor="let configurations of configuration">
-        <button ion-item *ngFor="let services of configurations['Services']" (click)=presentToast(services.DescriptionText)>
+        <button ion-item *ngFor="let services of configurations['Services']" (click)=presentToast(services.DescriptionTittle,services.DescriptionText)>
           <ion-icon name="{{services.Icon}}" item-start></ion-icon>
          {{services.Text}}
         </button>
-
-
-        
-
-      </ion-list>  
+       </ion-list>  
     </ion-card>
 
 <ion-list radio-group>
