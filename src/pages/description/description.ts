@@ -88,6 +88,7 @@ configuration = [
   toast.present();
   }
 
+  
  presentProfileModal(servicio) {
    let profileModal = this.modalCtrl.create(Profile, { nombre : 'La sagrada tienda' } );
    profileModal.present();
