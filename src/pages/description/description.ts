@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController,AlertController, NavParams, Slides, ToastController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController,AlertController, Slides, ToastController, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the DescriptionPage.
@@ -71,7 +71,7 @@ configuration = [
   }];
  
  @ViewChild(Slides) slide: Slides;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController,private toastCtrl: ToastController, public modalCtrl: ModalController) {
   }
   
   ionViewDidLoad(){
