@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController, ToastController } from 'ionic-angular';
 import { DescriptionPage } from '../description/description';
 
 
@@ -121,31 +121,22 @@ export class SitioPage {
     }
   ];
   
-  listas
-
-    
+  listas  
   categoriaName
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  myIcon: string = "";
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public alertCtrl: AlertController,
+              public toastCtrl: ToastController) {
   this.categoriaName = navParams.get('categoriaName');
   }
 
   ionViewDidLoad() {
+    this.selectUserIcon();
+
    console.log(this.navParams.data);
-   if(this.categoriaName == "Restaurants"){
-      this.listas = this.Restaurants;
-    }
-    else
-    if(this.categoriaName == "Bar"){
-      this.listas = this.Bar;
-    }
-    else 
-    if(this.categoriaName == "Disco"){
-      this.listas = this.discotecas;
-    }
-    else 
-    if(this.categoriaName == "Xtreme sports"){
-      this.listas = this.Xtreme_sports;
-    }
+    this.cargarDatos(this.navParams.get('categoriaName'));
   }
 
   public cargarDatos(categoriaName){
@@ -169,5 +160,49 @@ export class SitioPage {
   nav(){
       this.navCtrl.push(DescriptionPage);
   }
+
+
+  showConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'Do you want to log out??',
+      //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Sesión cerrada');
+            this.showToast('bottom');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+   showToast(position: string) {
+    let toast = this.toastCtrl.create({
+      message: this.navParams.get('userName')+'Session closed successfully',
+      duration: 2000,
+      position: position
+    });
+    toast.present(toast);
+}
+
+
+
+public selectUserIcon(){
+      if(this.navParams.get('userName') == ""){
+      this.myIcon = "md-glasses";
+      }
+    else{
+      this.myIcon = "ios-contact";
+    }
+  }
+  
 
 }

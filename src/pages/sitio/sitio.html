@@ -8,6 +8,13 @@
 
   <ion-navbar color="azul">
     <ion-title>sitio</ion-title>
+    <ion-buttons end>
+    <button ion-button icon-only  (click)="showConfirm()">
+      <ion-avatar>
+      <ion-icon [name]="myIcon"></ion-icon>
+      </ion-avatar>
+    </button>
+  </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -21,7 +28,10 @@
           <img [src]="slide.image" class="slide-image"/>
         </ion-slide>
       </ion-slides>
-      <div ><h1 style="text-align: center;" clear >Select establishment</h1>  </div>
+
+      <div full class="ion-card_ppal"> <div class="title_ppal"> Select Site </div> </div>
+    
+
 <div padding>
 <ion-list>
     <ion-card  *ngFor=" let lista of listas" (click)="nav()" >

@@ -11,4 +11,25 @@ page-sitio {
     .item {
         background: rgba(232,230,230,0px); 
     }
+
+    .ion-card_ppal {
+            position: relative;
+            top: 1px;
+            text-align: center;
+            height: 45px;
+            width: relative;
+            background: linear-gradient(1deg, rgba(330, 330, 330, 0.4px), #002636);
+
+           
+        }
+        .title_ppal {
+            position: absolute;
+            top: 25%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color:  white;
+            border-bottom-color: black rgba(100, 100, 100, 0.6px);
+        }
+
 }

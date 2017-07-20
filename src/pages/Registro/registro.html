@@ -17,7 +17,7 @@
   <ion-navbar  color="azul">
     <ion-title>Categories</ion-title>
 
-<ion-buttons end>
+  <ion-buttons end>
     <button ion-button icon-only  (click)="toHome()">
       <ion-icon name="arrow-dropright"></ion-icon>
     </button>
@@ -30,9 +30,8 @@
 
 <ion-content padding style="background-image:url('https://unsplash.it/g/2200/4300?blur&image=1067');background-repeat: no-repeat;background-size: 100% 100%">
 
-<form [formGroup]="myForm" (ngSubmit)="saveData()">
- <ion-card>
-     
+  <ion-card>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()">
         <ion-item >
           <ion-icon name="person" item-left></ion-icon>
           <ion-label floating> Username </ion-label>
@@ -95,15 +94,16 @@
         <ion-label floating >Magic Code </ion-label>
         <ion-input formControlName="magicCode" type="text" ></ion-input>
       </ion-item>
+</form>
+  </ion-card>
 
-
-    </ion-card>
+    
     <div padding>
     
       <button style="margin-top: 15px;height: 35px;font-size: 14px;" ion-button color="azul" type="submit" [disabled]="!myForm.valid" block  (click)="presentToast()">Done</button>
 
     </div>
-</form>
+
 
   
 
