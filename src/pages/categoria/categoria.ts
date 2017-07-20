@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ToastController,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController,AlertController} from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { SectorPage } from '../sector/sector';
@@ -71,7 +71,7 @@ categorias  = [
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public alertCtrl: AlertController,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController,) {
 
     this.user = navParams.get('userName');
   }
