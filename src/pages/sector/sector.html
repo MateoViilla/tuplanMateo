@@ -3,6 +3,13 @@
 
   <ion-navbar color="azul">
     <ion-title>sector</ion-title>
+    <ion-buttons end>
+    <button ion-button icon-only  (click)="showConfirm()">
+      <ion-avatar>
+      <ion-icon [name]="myIcon"></ion-icon>
+      </ion-avatar>
+    </button>
+  </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -17,17 +24,16 @@
         </ion-slide>
       </ion-slides>
 
-     <div style="background: rgba(232, 230, 230, 0.9px); border-radius: 10px; " full color="light"><h1 style="text-align: center;" clear >Select Sector</h1>  </div>
+    <div full class="ion-card_ppal"> <div class="title_ppal"> Select Sector </div> </div>
+    
 <div padding>
-
+ 
   <ion-card *ngFor="let sector of sectors" (click)="nav(sector)">
      <img [src]="sector.image" class="slide-image"/>
         <!-- Photo by modesta-zemgulyte on Unsplash-->
         <div class="card-title">  {{sector.sectorName}}</div>
         <div class="card-subtitle">41 Listings</div>
     </ion-card>
-
-    <button (click)="mostrar()">mostrar categoria</button>
 </div>
 
 </ion-content>

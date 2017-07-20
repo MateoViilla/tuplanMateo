@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController,AlertController } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { SectorPage } from '../sector/sector';
@@ -63,20 +63,33 @@ categorias  = [
 ];
 
   
- user
-  
+   user
+
+   myIcon: string = "";
+
    @ViewChild(Slides) slide: Slides;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public alertCtrl: AlertController,
+              public toastCtrl: ToastController) {
 
     this.user = navParams.get('userName');
   }
 
   ionViewDidLoad() {
-    if(this.user == ""){
-   console.log("no hay usuario")   
-    }
-    else
-     console.log(this.user);
+
+    this.mostrarUsuario();
+    this.selectUserIcon();
+  }
+
+
+  public mostrarUsuario(){
+      if(this.user == ""){
+      console.log("no hay usuario")   
+      }
+      else
+      console.log(this.user);
+
   }
  
 
@@ -94,8 +107,44 @@ categorias  = [
     })
   }
 
-  clicado(){
-    
+    showConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'Do you want to log out??',
+      //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Sesión cerrada');
+            this.showToast('bottom');
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+   showToast(position: string) {
+    let toast = this.toastCtrl.create({
+      message: this.navParams.get('userName')+'Session closed successfully',
+      duration: 2000,
+      position: position
+    });
+    toast.present(toast);
+}
+
+  public selectUserIcon(){
+      if(this.navParams.get('userName') == ""){
+      this.myIcon = "md-glasses";
+      }
+    else{
+      this.myIcon = "ios-contact";
+    }
   }
 
   toBtnMagico(){

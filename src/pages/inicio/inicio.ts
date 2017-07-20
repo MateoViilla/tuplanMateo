@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoriaPage } from '../categoria/categoria';
-import { RegistroPage } from '../Registro/registro';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the InicioPage page.
@@ -20,16 +20,15 @@ export class InicioPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InicioPage');
   }
 
 
   toCategoria(){
-    this.navCtrl.push(CategoriaPage);
+    this.navCtrl.push(CategoriaPage, {userName:""});
   }
   
-  toRegistro(){
-    this.navCtrl.push(RegistroPage);
+  toHome(){
+    this.navCtrl.push(HomePage);
     
   }
 }

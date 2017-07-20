@@ -24,7 +24,7 @@
 <div align="center">
   <img src="assets/img/tuPlan-logo.png"/>
 </div>
- <form (ngSubmit)="logForm()">
+  <form (ngSubmit)="logForm()">
       <ion-list no-lines >
 
         <ion-card>
@@ -38,14 +38,13 @@
         <ion-card>
         <ion-item>
           <ion-icon name="lock" item-left></ion-icon>
-          <ion-label color="dark" fixed>Password</ion-label>
           <ion-input [(ngModel)]="user.password" name="password" type="password" placeholder="Password Input"></ion-input>
         </ion-item>
         </ion-card>
 
       </ion-list>
         
-        <button ion-button type="submit" style="margin-top: 15px;height: 35px;font-size: 14px;background-color: #E6E642; color:black;" ion-button  round  (click)="toCategories()"><p>Login</p></button>
+        <button ion-button type="submit" style="margin-top: 15px;height: 35px;font-size: 14px;background-color: #E6E642; color:black;"  round  (click)="toCategories()"><p>Login</p></button>
         
   </form>
 
@@ -54,10 +53,10 @@
 
 
   <div text-center style="text-decoration: underline;margin-top:20px;color:white;font-size: 14px;"  (click)="forgotPwd()">Forgot Password</div>
-  <button ion-button color="light"style="margin-top:20px;height: 35px;font-size: 14px;"  round  (click)="signUp()" outline>Register</button>
+  <button ion-button color="azul"style="margin-top:20px;height: 35px;font-size: 14px;"  round  (click)="signUp()" >Register</button>
 
-      <button ion-button color="primary" ion-left round>
-      <ion-icon name="logo-facebook"></ion-icon>
+      <button ion-button color="azul" ion-left round style="height: 35px;">
+      <ion-icon name="logo-facebook" color="primary"></ion-icon>
       <div>Login with Facebook</div></button>
       
       <!--<button ion-button color="danger" ion-left block>
