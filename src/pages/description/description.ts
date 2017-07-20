@@ -55,6 +55,12 @@ configuration = [
       Text:"Descuentos promotores",
       DescriptionTittle:"Descripcion",
       DescriptionText:"Los mejores descuentos para los promotores, hasta del 15% de descuento en todo lo que se pueda consumir dentro del sitio"
+    },
+    {
+      Icon:"card",
+      Text:"Cover",
+      DescriptionTittle:"Precios y tarifas",
+      DescriptionText:"Jueves, viernes y domingos, no cover para mujeres, los sabados el cover tiene un precio de $10.000 COP"
     }],
     MaxPrice: "$430.000",
     LowPrice: "$6.600",
