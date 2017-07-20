@@ -109,7 +109,7 @@ categorias  = [
 
     showConfirm() {
     let confirm = this.alertCtrl.create({
-      title: 'Do you want to log out??',
+      title: 'Do you want to log out?',
       //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
         {

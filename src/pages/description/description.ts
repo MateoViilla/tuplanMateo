@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, ToastController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController,AlertController, NavParams, Slides, ToastController, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the DescriptionPage.
@@ -69,8 +69,8 @@ configuration = [
     PrecioCover:"10.000",
     TipoMoneda:"COP"
   }];
-
-  @ViewChild(Slides) slide: Slides;
+ 
+ @ViewChild(Slides) slide: Slides;
   constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, public modalCtrl: ModalController) {
   }
   
@@ -102,5 +102,4 @@ configuration = [
     const myModal = this.modalCtrl.create('ModalPage');
     myModal.present();
   }
-
 }
