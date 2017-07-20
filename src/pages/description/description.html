@@ -21,30 +21,28 @@
      <ion-label class="text-tittle">{{configurations.Tittle}}</ion-label>
      <ion-label class="text-subtittle">{{configurations.Description}}</ion-label>
   </div>
-    <button ion-button full  *ngFor="let configurations of configuration" class="button-booking" color="{{configurations.Color}}" (click)='presentProfileModal(configurations.Name)'>Reservar</button>
+    <button ion-button full  *ngFor="let configurations of configuration" class="button-booking" color="{{configurations.Color}}" (click)='openModal()'>Reservar</button>
   <ion-label padding style="text-align:center" class="text-tittle-services">Nuestros servicios</ion-label>
     <ion-card class="list-container">
       <ion-list *ngFor="let configurations of configuration">
-        <button ion-item *ngFor="let services of configurations['Services']" (click)=presentToast(services.DescriptionTittle,services.DescriptionText)>
+        <button ion-item *ngFor="let services of configurations['Services']" (click)='presentToast(services.DescriptionTittle,services.DescriptionText)'>
           <ion-icon name="{{services.Icon}}" item-start></ion-icon>
          {{services.Text}}
         </button>
        </ion-list>  
     </ion-card>
-
-<ion-list radio-group>
+ <ion-label padding style="text-align:center" class="text-tittle-services">Precios</ion-label>
+  <ion-list radio-group  *ngFor="let configurations of configuration">
     <ion-item>
-        
-        <ion-label>Max price: $430.000</ion-label>
-        <ion-radio value="MinP" checked="true"></ion-radio>
+        <ion-label>Precio máximo: {{configurations.MaxPrice}}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-label>Low Price: $6.600</ion-label>
-        <ion-radio value="MaxP"></ion-radio>
-</ion-item>
-</ion-list>
+        <ion-label>Precio mínimo: {{configurations.LowPrice}}</ion-label>
+      </ion-item>
+  </ion-list>
+    
 
-     <button ion-button full  *ngFor="let configurations of configuration" class="button-booking" color="{{configurations.Color}}">Reservar</button>
+     <button ion-button full  *ngFor="let configurations of configuration" class="button-booking" color="{{configurations.Color}}" (click)='openModal()'>Reservar</button>
 
 
   

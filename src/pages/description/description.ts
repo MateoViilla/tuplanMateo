@@ -1,9 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Slides } from 'ionic-angular';
-import { ViewChild } from '@angular/core';
-import { ToastController } from 'ionic-angular';
-import { ModalController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides, ToastController, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the DescriptionPage.
@@ -88,16 +84,17 @@ configuration = [
   toast.present();
   }
 
- presentProfileModal(servicio) {
-   let profileModal = this.modalCtrl.create(Profile, { nombre : 'La sagrada tienda' } );
-   profileModal.present();
- }
-}
+  /*bookingAction(){
+    if (usuario =! ""){
 
-class Profile {
+    } else {
 
- constructor(params: NavParams) {
-   console.log('UserId', params.get('userId'));
- }
+    }
+
+  } */
+  openModal(){
+    const myModal = this.modalCtrl.create('ModalPage');
+    myModal.present();
+  }
 
 }
