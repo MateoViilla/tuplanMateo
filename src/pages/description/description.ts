@@ -1,11 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-<<<<<<< HEAD
 import { IonicPage, NavController, NavParams, Slides, ToastController, ModalController } from 'ionic-angular';
 import { UsuarioApi } from '../../shared/sdk/services';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
-=======
-import { IonicPage, NavController,AlertController, Slides, ToastController, ModalController } from 'ionic-angular';
->>>>>>> bfbb32ef644dbfd6be73c0f3cc267e55e0f2a555
 
 /**
  * Generated class for the DescriptionPage.

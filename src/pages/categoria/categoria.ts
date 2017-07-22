@@ -74,14 +74,10 @@ categorias  = [
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public alertCtrl: AlertController,
-<<<<<<< HEAD
               public toastCtrl: ToastController,
               private usuarioApi:UsuarioApi) {
     if (!usuarioApi.isAuthenticated()) {
           this.navCtrl.push(InicioPage);
-=======
-              public toastCtrl: ToastController,) {
->>>>>>> bfbb32ef644dbfd6be73c0f3cc267e55e0f2a555
 
       
     }
