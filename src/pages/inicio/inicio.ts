@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CategoriaPage } from '../categoria/categoria';
 import { HomePage } from '../home/home';
+import { UsuarioApi } from '../../shared/sdk/services';
+
 
 /**
  * Generated class for the InicioPage page.
@@ -16,7 +18,13 @@ import { HomePage } from '../home/home';
 })
 export class InicioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private usuarioApi:UsuarioApi) {
+    if (usuarioApi.isAuthenticated()) {
+          this.navCtrl.push(CategoriaPage);
+            console.log(this.usuarioApi.getCachedCurrent());
+
+      
+    }
   }
 
   ionViewDidLoad() {

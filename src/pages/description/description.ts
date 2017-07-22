@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, ToastController, ModalController } from 'ionic-angular';
+import { UsuarioApi } from '../../shared/sdk/services';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 /**
  * Generated class for the DescriptionPage.
@@ -71,8 +73,10 @@ configuration = [
   }];
 
   @ViewChild(Slides) slide: Slides;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController, public modalCtrl: ModalController) {
-  }
+  constructor(public navCtrl: NavController,private photoViewer: PhotoViewer,private usuarioApi:UsuarioApi, public navParams: NavParams,private toastCtrl: ToastController, public modalCtrl: ModalController) {
+this.photoViewer.show('http://www.farrasnorte.com/clientes_base/min_486.jpg');
+  
+}
   
   ionViewDidLoad(){
   }

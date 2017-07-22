@@ -1,110 +1,101 @@
-
 <style type="text/css">
-::-webkit-input-placeholder {
-  color: white !important; 
-}
-:-moz-placeholder {
-  color: white !important; 
-}
-:-ms-input-placeholder {
-  /* IE10+ */
-  color: white !important; 
-}
+   ::-webkit-input-placeholder {
+    color: white !important;
+  }
+
+   :-moz-placeholder {
+    color: white !important;
+  }
+
+   :-ms-input-placeholder {
+    /* IE10+ */
+    color: white !important;
+  }
 </style>
 
 <ion-header>
 
-  <ion-navbar  color="azul">
+  <ion-navbar color="azul">
     <ion-title>Categories</ion-title>
 
-  <ion-buttons end>
-    <button ion-button icon-only  (click)="toHome()">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toHome()">
       <ion-icon name="arrow-dropright"></ion-icon>
     </button>
-  </ion-buttons>
+    </ion-buttons>
   </ion-navbar>
-  
+
 </ion-header>
 
- 
+
 
 <ion-content padding style="background-image:url('https://unsplash.it/g/2200/4300?blur&image=1067');background-repeat: no-repeat;background-size: 100% 100%">
 
   <ion-card>
-  <form [formGroup]="myForm" (ngSubmit)="saveData()">
-        <ion-item >
-          <ion-icon name="person" item-left></ion-icon>
-          <ion-label floating> Username </ion-label>
-          <ion-input formControlName="name" type="text"> </ion-input>
-        </ion-item>
+    <form [formGroup]="myForm" (ngSubmit)="saveData()">
+      <ion-item>
 
-        <ion-item>
-          <ion-icon name="person" item-left></ion-icon>
-          <ion-label floating> LastName </ion-label>
-          <ion-input formControlName="lastName" type="text"> </ion-input>
-        </ion-item>
+        <ion-label floating>
+          <ion-icon name="person" item-left></ion-icon> Nombre completo </ion-label>
+        <ion-input formControlName="name" [(ngModel)]="account.name" type="text"> </ion-input>
+      </ion-item>
 
-   
+
 
 
       <ion-item>
-        <ion-icon name="mail" item-left></ion-icon>
-        <ion-label floating >E-mail</ion-label>
-        <ion-input formControlName="email" type="email" ></ion-input>
+        <ion-label floating>
+          <ion-icon name="mail" item-left></ion-icon>
+          E-mail</ion-label>
+        <ion-input formControlName="email" [(ngModel)]="account.email" type="email"></ion-input>
       </ion-item>
 
 
       <ion-item>
-        <ion-icon name="calendar" item-left></ion-icon>
-        <ion-label stacked >Fecha de nacimiento</ion-label>
-        <ion-datetime formControlName="dateBirth" displayFormat="MM-DD-YYYY" placeholder="MM-DD-YYY"></ion-datetime>
+        <ion-label stacked>
+          <ion-icon name="calendar" item-left></ion-icon>
+          Fecha de nacimiento</ion-label>
+        <ion-datetime formControlName="dateBirth" displayFormat="MM-DD-YYYY" [(ngModel)]="account.birthDate" placeholder="MM-DD-YYY"></ion-datetime>
       </ion-item>
       <div formGroupName="passwordRetry">
         <ion-item>
-          <ion-icon name="eye" item-left></ion-icon>
-          <ion-label floating>Password</ion-label>
-          <ion-input formControlName="password" type="password" ></ion-input>
+          <ion-label floating>
+            <ion-icon name="eye" item-left></ion-icon>
+            Contraseña</ion-label>
+          <ion-input formControlName="password" type="password"[(ngModel)]="account.password" ></ion-input>
         </ion-item>
         <ion-item>
-          <ion-icon name="eye" item-left></ion-icon>
-          <ion-label floating >Confirm password</ion-label>
+          <ion-label floating>
+            <ion-icon name="eye" item-left></ion-icon>
+            Confirmar Contraseña</ion-label>
           <ion-input formControlName="passwordConfirmation" type="password"></ion-input>
         </ion-item>
       </div>
-      <ion-row radio-group formControlName="gender">
-        <ion-item on-drag-left="s">
-          <ion-icon name="woman" item-left></ion-icon>
-          <ion-label>Woman</ion-label>
-          <ion-radio value="2"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="man" item-left></ion-icon>
-          <ion-label>Man</ion-label>
-          <ion-radio value="1"></ion-radio>
-        </ion-item>
-      </ion-row>
-       <ion-item>
-        <ion-icon name="call" item-left></ion-icon>
-        <ion-label floating >Phone</ion-label>
-        <ion-input formControlName="phone" type="text" ></ion-input>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="call" item-left></ion-icon>
+          Telefono</ion-label>
+        <ion-input formControlName="phone" [(ngModel)]="account.telefono"type="text"></ion-input>
       </ion-item>
 
- <ion-item>
-        <ion-icon name="flash" item-left></ion-icon>
-        <ion-label floating >Magic Code </ion-label>
-        <ion-input formControlName="magicCode" type="text" ></ion-input>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="flash" item-left></ion-icon>
+          Codigo magico </ion-label>
+        <ion-input formControlName="magicCode" [(ngModel)]="account.code"type="text"></ion-input>
       </ion-item>
-</form>
+    </form>
   </ion-card>
 
-    
-    <div padding>
-    
-      <button style="margin-top: 15px;height: 35px;font-size: 14px;" ion-button color="azul" type="submit" [disabled]="!myForm.valid" block  (click)="presentToast()">Done</button>
 
-    </div>
+  <div padding>
+
+    <button style="margin-top: 15px;height: 35px;font-size: 14px;" ion-button color="azul" type="submit"  (click)="presentToast()">Done</button>
+
+  </div>
 
 
-  
+
 
 </ion-content>

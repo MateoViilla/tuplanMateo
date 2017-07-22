@@ -4,6 +4,9 @@ import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { SectorPage } from '../sector/sector';
 import { BtnMagicoPage } from '../boton-magico/btn_magico';
+import { InicioPage } from '../inicio/inicio';
+
+import { UsuarioApi } from '../../shared/sdk/services';
 
 
 
@@ -71,8 +74,13 @@ categorias  = [
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public alertCtrl: AlertController,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController,
+              private usuarioApi:UsuarioApi) {
+    if (!usuarioApi.isAuthenticated()) {
+          this.navCtrl.push(InicioPage);
 
+      
+    }
     this.user = navParams.get('userName');
   }
 
