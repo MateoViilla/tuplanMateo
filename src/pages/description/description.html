@@ -2,8 +2,7 @@
 
   <ion-navbar color="{{configurations.Color}}">
     <ion-title>{{configurations.Tittle}}</ion-title>
-  </ion-navbar>
-
+    </ion-navbar>
 </ion-header>
 
 <ion-content  class="card-background-page">
@@ -21,6 +20,10 @@
      <ion-label class="text-tittle">{{configurations.Tittle}}</ion-label>
      <ion-label class="text-subtittle">{{configurations.Description}}</ion-label>
   </div>
+<<<<<<< HEAD
+=======
+   
+>>>>>>> bfbb32ef644dbfd6be73c0f3cc267e55e0f2a555
   <ion-label padding style="text-align:center" class="text-tittle-services">Nuestros servicios</ion-label>
     <ion-card class="list-container">
       <ion-list *ngFor="let configurations of configuration">
@@ -39,8 +42,8 @@
         <ion-label>Precio mínimo: {{configurations.LowPrice}}</ion-label>
       </ion-item>
   </ion-list>
-    
-
+    <img src="http://www.discotecasmedellin.com/wp-content/uploads/2016/02/carta-licochorro-del-viernes.jpg" style="height:120px;width:50%">
+<img src="http://www.discotecasmedellin.com/wp-content/uploads/2016/02/carta-licochorro-del-viernes.jpg" style="height:120px;width:50%">
      <button ion-button full  *ngFor="let configurations of configuration" class="button-booking" color="{{configurations.Color}}" (click)='openModal()'>Reservar</button>
 
 

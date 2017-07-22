@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ToastController,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController,AlertController} from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { SectorPage } from '../sector/sector';
@@ -74,10 +74,14 @@ categorias  = [
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public alertCtrl: AlertController,
+<<<<<<< HEAD
               public toastCtrl: ToastController,
               private usuarioApi:UsuarioApi) {
     if (!usuarioApi.isAuthenticated()) {
           this.navCtrl.push(InicioPage);
+=======
+              public toastCtrl: ToastController,) {
+>>>>>>> bfbb32ef644dbfd6be73c0f3cc267e55e0f2a555
 
       
     }
@@ -117,7 +121,7 @@ categorias  = [
 
     showConfirm() {
     let confirm = this.alertCtrl.create({
-      title: 'Do you want to log out??',
+      title: 'Do you want to log out?',
       //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
       buttons: [
         {
