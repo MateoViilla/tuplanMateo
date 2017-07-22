@@ -38,62 +38,62 @@
           <ion-input formControlName="name" type="text"> </ion-input>
         </ion-item>
 
+         
+
         <ion-item>
-          <ion-icon name="person" item-left></ion-icon>
-          <ion-label floating> LastName </ion-label>
-          <ion-input formControlName="lastName" type="text"> </ion-input>
+          <ion-icon name="mail" item-left></ion-icon>
+          <ion-label floating >E-mail</ion-label>
+          <ion-input formControlName="email" type="email" ></ion-input>
         </ion-item>
 
-   
 
+        <ion-item>
+          <ion-icon name="calendar" item-left></ion-icon>
+          <ion-label stacked >Fecha de nacimiento</ion-label>
+          <ion-datetime formControlName="dateBirth" displayFormat="MM-DD-YYYY" placeholder="MM-DD-YYY"></ion-datetime>
+        </ion-item>
 
-      <ion-item>
-        <ion-icon name="mail" item-left></ion-icon>
-        <ion-label floating >E-mail</ion-label>
-        <ion-input formControlName="email" type="email" ></ion-input>
-      </ion-item>
-
-
-      <ion-item>
-        <ion-icon name="calendar" item-left></ion-icon>
-        <ion-label stacked >Fecha de nacimiento</ion-label>
-        <ion-datetime formControlName="dateBirth" displayFormat="MM-DD-YYYY" placeholder="MM-DD-YYY"></ion-datetime>
-      </ion-item>
-      <div formGroupName="passwordRetry">
+        <div formGroupName="passwordRetry">
         <ion-item>
           <ion-icon name="eye" item-left></ion-icon>
           <ion-label floating>Password</ion-label>
           <ion-input formControlName="password" type="password" ></ion-input>
         </ion-item>
+
         <ion-item>
           <ion-icon name="eye" item-left></ion-icon>
           <ion-label floating >Confirm password</ion-label>
           <ion-input formControlName="passwordConfirmation" type="password"></ion-input>
         </ion-item>
+
       </div>
+
       <ion-row radio-group formControlName="gender">
+        
         <ion-item on-drag-left="s">
           <ion-icon name="woman" item-left></ion-icon>
           <ion-label>Woman</ion-label>
           <ion-radio value="2"></ion-radio>
         </ion-item>
+        
         <ion-item>
           <ion-icon name="man" item-left></ion-icon>
           <ion-label>Man</ion-label>
           <ion-radio value="1"></ion-radio>
         </ion-item>
-      </ion-row>
-       <ion-item>
-        <ion-icon name="call" item-left></ion-icon>
-        <ion-label floating >Phone</ion-label>
-        <ion-input formControlName="phone" type="text" ></ion-input>
-      </ion-item>
 
- <ion-item>
-        <ion-icon name="flash" item-left></ion-icon>
-        <ion-label floating >Magic Code </ion-label>
-        <ion-input formControlName="magicCode" type="text" ></ion-input>
-      </ion-item>
+        </ion-row>
+        <ion-item>
+          <ion-icon name="call" item-left></ion-icon>
+          <ion-label floating >Phone</ion-label>
+          <ion-input formControlName="phone" type="text" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="flash" item-left></ion-icon>
+          <ion-label floating >Magic Code </ion-label>
+          <ion-input formControlName="magicCode" type="text" ></ion-input>
+        </ion-item>
 </form>
   </ion-card>
 
