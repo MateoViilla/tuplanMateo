@@ -74,7 +74,7 @@ configuration = [
 
   @ViewChild(Slides) slide: Slides;
   constructor(public navCtrl: NavController,private photoViewer: PhotoViewer,private usuarioApi:UsuarioApi, public navParams: NavParams,private toastCtrl: ToastController, public modalCtrl: ModalController) {
-this.photoViewer.show('http://www.farrasnorte.com/clientes_base/min_486.jpg');
+
   
 }
   
@@ -105,5 +105,10 @@ this.photoViewer.show('http://www.farrasnorte.com/clientes_base/min_486.jpg');
   openModal(){
     const myModal = this.modalCtrl.create('ModalPage');
     myModal.present();
+  }
+
+  openPhoto(url){
+       this.photoViewer.show(url);
+
   }
 }
