@@ -19,15 +19,16 @@ import { UsuarioApi } from '../../shared/sdk/services';
 export class InicioPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private usuarioApi:UsuarioApi) {
-    if (usuarioApi.isAuthenticated()) {
+   
+  }
+
+  ionViewWillEnter():void {
+ if (this.usuarioApi.isAuthenticated()) {
           this.navCtrl.push(CategoriaPage);
             console.log(this.usuarioApi.getCachedCurrent());
 
       
     }
-  }
-
-  ionViewDidLoad() {
   }
 
 

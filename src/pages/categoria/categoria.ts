@@ -76,11 +76,7 @@ categorias  = [
               public alertCtrl: AlertController,
               public toastCtrl: ToastController,
               private usuarioApi:UsuarioApi) {
-    if (!usuarioApi.isAuthenticated()) {
-          this.navCtrl.push(InicioPage);
-
-      
-    }
+    
     this.user = navParams.get('userName');
   }
 
