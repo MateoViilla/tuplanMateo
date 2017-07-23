@@ -89,7 +89,8 @@ configuration = [
   let toast = this.toastCtrl.create({
     message: titulo +': \n'+ mensaje,
     duration: 3000,
-    position: 'center'
+    position: 'top',
+    showCloseButton: true
   });
   toast.present();
   }
@@ -104,6 +105,10 @@ configuration = [
   } */
   openModal(){
     const myModal = this.modalCtrl.create('ModalPage');
+    myModal.present();
+  }
+  openModalNoAuth(){
+    const myModal = this.modalCtrl.create('ModalNoAuthPage');
     myModal.present();
   }
 
