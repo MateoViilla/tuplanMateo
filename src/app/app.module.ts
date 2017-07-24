@@ -3,7 +3,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+ 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RegistroPage } from '../pages/Registro/registro';
@@ -16,6 +17,7 @@ import { DescriptionPage } from '../pages/description/description';
 import { BtnMagicoPage } from '../pages/boton-magico/btn_magico';
 import { BtnMagicoLugarPage } from '../pages/boton-magico-lugar/btn_magico_lugar';
 import { GlobalVarProvider } from '../providers/global-var/global-var';
+import { SDKBrowserModule } from '../shared/sdk/index';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { GlobalVarProvider } from '../providers/global-var/global-var';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    SDKBrowserModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,6 +54,7 @@ import { GlobalVarProvider } from '../providers/global-var/global-var';
   ],
   providers: [
     StatusBar,
+    PhotoViewer,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalVarProvider
