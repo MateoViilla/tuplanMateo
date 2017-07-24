@@ -9,49 +9,55 @@
   <ion-navbar color="azul">
     <ion-title>Sitio</ion-title>
     <ion-buttons end>
-    <button ion-button icon-only  (click)="showConfirm()">
+      <button ion-button icon-only (click)="showConfirm()">
       <ion-avatar>
       <ion-icon [name]="myIcon"></ion-icon>
       </ion-avatar>
     </button>
-  </ion-buttons>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content  class="card-background-page" style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
-    <!--<h1>El sector es:{{sector.value}}</h1>-->
+<ion-content class="card-background-page" style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
+  <!--<h1>El sector es:{{sector.value}}</h1>-->
 
-      <ion-slides pager full>
-        <ion-slide *ngFor="let slide of slides">
-          <img [src]="slide.image" class="slide-image"/>
-        </ion-slide>
-      </ion-slides>
+  <ion-slides pager full>
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image" />
+    </ion-slide>
+  </ion-slides>
 
-      <div full class="ion-card_ppal"> <div class="title_ppal"> Select Site </div> </div>
-    
+  <div full class="ion-card_ppal">
+    <div class="title_ppal"> Select Site </div>
+  </div>
 
-<div padding>
-<ion-list>
-    <ion-card  *ngFor=" let lista of listas" (click)="nav()" >
-    <ion-card-header>
-      <ion-item>
-      
-      <ion-thumbnail item-start>
-        <img [src]="lista.image">
-      </ion-thumbnail>
-      <h2>{{lista.Name}}</h2>
-      <ion-note ><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></ion-note>
-      
-      </ion-item>
-    </ion-card-header>
-    <ion-card-content>
-      <p item-start>{{lista.descripcion}}</p>
-    </ion-card-content>
-    </ion-card >
-</ion-list>
 
-</div>
- 
+  <div padding>
+    <ion-list>
+      <ion-card *ngFor=" let lista of listas" (click)="nav()">
+        <ion-card-header>
+          <ion-item>
+
+            <ion-thumbnail item-start>
+              <img [src]="lista.image" style="border-radius:50%">
+            </ion-thumbnail>
+            <h2>{{lista.Name}}</h2>
+            <ion-note>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+            </ion-note>
+          </ion-item>
+        </ion-card-header>
+        <ion-card-content>
+          <p item-start>{{lista.descripcion}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+  </div>
+
 </ion-content>
