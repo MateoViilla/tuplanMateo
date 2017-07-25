@@ -39,7 +39,7 @@ page-categoria{
             top: 15%;
             font-size: 2.0em;
             width: 100%;
-            font-weight: bold;
+            //font-weight: bold;
             color: #fff;
             border-bottom-color: black rgba(100, 100, 100, 0.6px);
         }
@@ -59,19 +59,20 @@ page-categoria{
             position: relative;
             top: 1px;
             text-align: center;
-            height: 45px;
+            height: 50px;
             width: relative;
-            background: linear-gradient(1deg, rgba(330, 330, 330, 0.4px), #002636);
-            border-bottom-color: #E6E642 solid 1px;
-
-           
+            background: linear-gradient(1deg, rgba(350, 350, 350, 0.4px), #002636);
+            border-bottom-color: #E6E642 solid 1px; 
         }
+        
         .title_ppal {
             position: absolute;
             top: 25%;
-            font-size: 2.0em;
-            width: 100%;
             font-weight: bold;
+            font-size: 1.8em;
+            width: 100%;
+            font-weight: lighter;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color:  #002636;
             border-bottom-color: black rgba(100, 100, 100, 0.6px);
         }
@@ -82,6 +83,8 @@ page-categoria{
             height: 200px;
             width: 100%;
         }
+
+    
 
         
 

@@ -10,13 +10,6 @@ import { UsuarioApi } from '../../shared/sdk/services';
 
 
 
-
-/**
- * Generated class for the CategoriaPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-categoria',
@@ -38,29 +31,29 @@ export class CategoriaPage {
 
 categorias  = [
     {
-      categoriaName: "Restaurants",
-      CategoriaImage: "https://unsplash.it/2000/608?image=1080",
+      categoriaName: "Restaurantes",
+      CategoriaImage: "https://unsplash.it/2000/608?blur&image=1080",
       listing: "41",
     },
     {
-      categoriaName: "Bar",
-      CategoriaImage: "https://unsplash.it/2000/608?image=766",
+      categoriaName: "Bares",
+      CategoriaImage: "https://unsplash.it/2000/608?blur&image=766",
       listing: "23",
     },
     /*
     {
       categoriaName: "Fondas",
-      CategoriaImage: "https://unsplash.it/2000/608?image=395",
+      CategoriaImage: "https://unsplash.it/2000/608?blur&image=395",
       listing: "20",
     },*/
     {
-      categoriaName: "Disco",
-      CategoriaImage: "https://unsplash.it/2000/608?image=274",
+      categoriaName: "Discotecas",
+      CategoriaImage: "https://unsplash.it/2000/608?blur&image=274",
       listing: "40",
     },
     {
       categoriaName: "Xtreme sports",
-      CategoriaImage: "https://unsplash.it/2000/608?image=773",
+      CategoriaImage: "https://unsplash.it/2000/608?blur&image=773",
       listing: "10",
     }
 ];
@@ -77,34 +70,18 @@ categorias  = [
               public toastCtrl: ToastController,
               private usuarioApi:UsuarioApi) {
     if (!usuarioApi.isAuthenticated()) {
-          this.navCtrl.push(InicioPage);
-
-      
+         
     }
-    this.user = navParams.get('userName');
   }
 
   ionViewDidLoad() {
-
-    this.mostrarUsuario();
     this.selectUserIcon();
+    
   }
 
 
-  public mostrarUsuario(){
-      if(this.user == ""){
-      console.log("no hay usuario")   
-      }
-      else
-      console.log(this.user);
-
-  }
  
-
-  slideChanged() {
-    let currentIndex = this.slide.getActiveIndex();
-    console.log('Current index is', currentIndex);
-  }
+ 
 
   toSectorPage(categoria) {
 
@@ -115,31 +92,45 @@ categorias  = [
     })
   }
 
+  
+
     showConfirm() {
-    let confirm = this.alertCtrl.create({
-      title: 'Do you want to log out?',
-      //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
-      buttons: [
-        {
-          text: 'No',
-          handler: () => {
-          }
-        },
-        {
-          text: 'Yes',
-          handler: () => {
-            console.log('Sesión cerrada');
-            this.showToast('bottom');
-          }
+        if (this.myIcon == "ios-contact") {
+          let confirm = this.alertCtrl.create({
+          title: 'Quieres cerrar sesión?',
+          //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+          buttons: [
+            {
+              text: 'No',
+              handler: () => {
+              }
+            },
+            {
+              text: 'Si',
+              handler: () => {
+                console.log('Sesión cerrada');
+                this.showToast('bottom');
+              }
+            }
+          ]
+         });
+        confirm.present();
         }
-      ]
+
+    else {
+      let toast = this.toastCtrl.create({
+      message: 'Anónimo ;)',
+      duration: 2000,
+      position: 'bottom'
     });
-    confirm.present();
+    toast.present(toast);
+    }
+     
   }
 
    showToast(position: string) {
     let toast = this.toastCtrl.create({
-      message: this.navParams.get('userName')+'Session closed successfully',
+      message: this.navParams.get('userName')+', Sesión cerrada con éxito',
       duration: 2000,
       position: position
     });
@@ -147,7 +138,7 @@ categorias  = [
 }
 
   public selectUserIcon(){
-      if(this.navParams.get('userName') == ""){
+      if(!this.usuarioApi.isAuthenticated()){
       this.myIcon = "md-glasses";
       }
     else{
