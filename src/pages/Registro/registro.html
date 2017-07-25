@@ -16,7 +16,7 @@
 <ion-header>
 
   <ion-navbar color="azul">
-    <ion-title>Categories</ion-title>
+    <ion-title>Registro</ion-title>
 
     <ion-buttons end>
       <button ion-button icon-only (click)="toHome()">
@@ -81,14 +81,14 @@
       <ion-item>
         <ion-label floating>
           <ion-icon name="call" item-left></ion-icon>
-          Telefono</ion-label>
+          Teléfono</ion-label>
         <ion-input formControlName="phone" [(ngModel)]="account.telefono"type="text"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>
           <ion-icon name="flash" item-left></ion-icon>
-          Codigo magico </ion-label>
+          Código mágico </ion-label>
         <ion-input formControlName="magicCode" [(ngModel)]="account.code"type="text"></ion-input>
       </ion-item>
     </form>
@@ -97,7 +97,7 @@
 
   <div padding>
 
-    <button style="margin-top: 15px;height: 35px;font-size: 14px;" ion-button color="azul" type="submit"  (click)="presentToast()">Done</button>
+    <button style="margin-top: 15px;height: 35px;font-size: 14px;" ion-button color="azul" type="submit"  (click)="presentToast()">Listo</button>
 
   </div>
 
