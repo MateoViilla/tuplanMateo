@@ -69,14 +69,9 @@ categorias  = [
               public alertCtrl: AlertController,
               public toastCtrl: ToastController,
               private usuarioApi:UsuarioApi) {
-<<<<<<< HEAD
-    
-    this.user = navParams.get('userName');
-=======
     if (!usuarioApi.isAuthenticated()) {
          
     }
->>>>>>> e60c3aa083e0b1abdb1485ab706b98586c12bdc5
   }
 
   ionViewDidLoad() {
