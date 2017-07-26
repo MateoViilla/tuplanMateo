@@ -27,7 +27,8 @@ export class InicioPage {
     }
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter():void {
+    
   }
 
 

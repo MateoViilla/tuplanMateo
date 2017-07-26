@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController,ToastController } from 'ionic-angular';
 import { SitioPage } from '../sitio/sitio';
+import { UsuarioApi } from '../../shared/sdk/services';
+
 
 /**
  * Generated class for the SectorPage page.
@@ -54,18 +56,13 @@ export class SectorPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public alertCtrl: AlertController,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController,
+              private usuarioApi:UsuarioApi) {
     
   }
 
   ionViewDidLoad() {
-    
-    console.log("la categoria es:"+ this.navParams.get('categoriaName'));
-    console.log("El usuario es:"+ this.navParams.get('userName'));
-        this.selectUserIcon();
-
-    
-    
+    this.selectUserIcon();
   }
 
   nav(sector){
@@ -78,31 +75,42 @@ export class SectorPage {
 
   }
   
-  showConfirm() {
-    let confirm = this.alertCtrl.create({
-      title: 'Do you want to log out?',
-      //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
-      buttons: [
-        {
-          text: 'No',
-          handler: () => {
-          }
-        },
-        {
-          text: 'Yes',
-          handler: () => {
-            console.log('Sesión cerrada');
-            this.showToast('bottom');
-          }
+     showConfirm() {
+        if (this.myIcon == "ios-contact") {
+          let confirm = this.alertCtrl.create({
+          title: 'Quieres cerrar sesión?',
+          //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+          buttons: [
+            {
+              text: 'No',
+              handler: () => {
+              }
+            },
+            {
+              text: 'Si',
+              handler: () => {
+                console.log('Sesión cerrada');
+                this.showToast('bottom');
+              }
+            }
+          ]
+         });
+        confirm.present();
         }
-      ]
-    });
-    confirm.present();
-  }
 
+    else {
+      let toast = this.toastCtrl.create({
+      message: 'Anónimo ;)',
+      duration: 2000,
+      position: 'bottom'
+    });
+    toast.present(toast);
+    }
+     
+  }
    showToast(position: string) {
     let toast = this.toastCtrl.create({
-      message: this.navParams.get('userName')+'Session closed successfully',
+      message: this.navParams.get('userName')+'Sesión cerrada con éxito',
       duration: 2000,
       position: position
     });
@@ -112,12 +120,13 @@ export class SectorPage {
 
 
 public selectUserIcon(){
-      if(this.navParams.get('userName') == ""){
+      if(!this.usuarioApi.isAuthenticated()){
       this.myIcon = "md-glasses";
       }
     else{
       this.myIcon = "ios-contact";
     }
   }
+
   
 }
