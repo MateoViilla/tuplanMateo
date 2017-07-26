@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController, ToastController } from 'ionic-angular';
 import { DescriptionPage } from '../description/description';
+import { UsuarioApi } from '../../shared/sdk/services';
+
 
 
 /**
@@ -128,27 +130,29 @@ export class SitioPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController,
+              private usuarioApi:UsuarioApi) {
+
   this.categoriaName = navParams.get('categoriaName');
   }
 
   ionViewDidLoad() {
     this.selectUserIcon();
 
-   console.log(this.navParams.data);
+    console.log(this.navParams.data);
     this.cargarDatos(this.navParams.get('categoriaName'));
   }
 
   public cargarDatos(categoriaName){
-    if(categoriaName == "Restaurants"){
+    if(categoriaName == "Restaurantes"){
       this.listas = this.Restaurants;
     }
     else
-    if(categoriaName == "Bar"){
+    if(categoriaName == "Bares"){
       this.listas = this.Bar;
     }
     else 
-    if(categoriaName == "Disco"){
+    if(categoriaName == "Discotecas"){
       this.listas = this.discotecas;
     }
     else 
@@ -162,26 +166,39 @@ export class SitioPage {
   }
 
 
-  showConfirm() {
-    let confirm = this.alertCtrl.create({
-      title: 'Do you want to log out?',
-      //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
-      buttons: [
-        {
-          text: 'No',
-          handler: () => {
-          }
-        },
-        {
-          text: 'Yes',
-          handler: () => {
-            console.log('Sesión cerrada');
-            this.showToast('bottom');
-          }
+ 
+   showConfirm() {
+        if (this.myIcon == "ios-contact") {
+          let confirm = this.alertCtrl.create({
+          title: 'Quieres cerrar sesión?',
+          //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+          buttons: [
+            {
+              text: 'No',
+              handler: () => {
+              }
+            },
+            {
+              text: 'Si',
+              handler: () => {
+                console.log('Sesión cerrada');
+                this.showToast('bottom');
+              }
+            }
+          ]
+         });
+        confirm.present();
         }
-      ]
+
+    else {
+      let toast = this.toastCtrl.create({
+      message: 'Anónimo ;)',
+      duration: 2000,
+      position: 'bottom'
     });
-    confirm.present();
+    toast.present(toast);
+    }
+     
   }
 
    showToast(position: string) {
@@ -195,14 +212,13 @@ export class SitioPage {
 
 
 
-public selectUserIcon(){
-      if(this.navParams.get('userName') == ""){
+  public selectUserIcon(){
+      if(!this.usuarioApi.isAuthenticated()){
       this.myIcon = "md-glasses";
       }
     else{
       this.myIcon = "ios-contact";
     }
   }
-  
 
 }

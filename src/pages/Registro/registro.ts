@@ -3,10 +3,11 @@ import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { CategoriaPage } from '../categoria/categoria';
 import { ToastController } from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoopBackConfig } from '../../shared/sdk';
 import { Usuario, AccessToken } from '../../shared/sdk/models';
 import { UsuarioApi } from '../../shared/sdk/services';
+
 
 
 @Component({
@@ -26,6 +27,9 @@ export class RegistroPage {
     this.myForm = this.createMyForm();
             console.log(this.usuarioApi.getCachedCurrent());
 
+  
+            
+
   }
   private signup(): void {
         this.usuarioApi.create(this.account).subscribe((account: Account) => this.signin());
@@ -34,6 +38,38 @@ export class RegistroPage {
         this.usuarioApi.login(this.account).subscribe((token: AccessToken) => this.goToCategories());
         
     }
+
+
+                
+
+              
+
+
+
+  
+  
+  private createMyForm(){
+  return this.formBuilder.group({
+
+    name: ['', Validators.compose([Validators.maxLength(10),Validators.minLength(2), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+    email : ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(50),Validators.pattern(/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i)])],
+    phone: ['', Validators.compose([Validators.maxLength(20),Validators.minLength(5), Validators.pattern('[0-9 ]*'), Validators.required])],
+    dateBirth: ['', Validators.required],
+    passwordRetry: this.formBuilder.group({
+      password: ['', Validators.required],
+      passwordConfirmation: ['', Validators.required]
+    }),
+    gender: ['', Validators.required],
+    magicCode: ['']
+  });
+
+  }
+
+   emailValidator(control: FormControl): {[s: string]: boolean} {
+    if (!(control.value.toLowerCase().match('^[a-zA-Z]\\w*@gmail\\.com$') || control.value.toLowerCase().match('^[a-zA-Z]\\w*@yahoo\\.com$'))) {
+      return {invalidEmail: true};
+    }
+  }
     
 goToCategories(): void{
   this.navCtrl.push(CategoriaPage);
@@ -59,21 +95,8 @@ goToCategories(): void{
   saveData() {
     console.log(this.myForm.value);
   }
+  validarContrasena(psw1:string, psw2: string){
 
-  private createMyForm() {
-    return this.formBuilder.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
-      dateBirth: ['', Validators.required],
-      passwordRetry: this.formBuilder.group({
-        password: ['', Validators.required],
-        passwordConfirmation: ['', Validators.required]
-      }),
-      gender: ['', Validators.required],
-      magicCode: ['']
-    });
   }
 
 
