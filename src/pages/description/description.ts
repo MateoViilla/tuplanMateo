@@ -74,7 +74,9 @@ configuration = [
 
   @ViewChild(Slides) slide: Slides;
   constructor(public navCtrl: NavController,private photoViewer: PhotoViewer,private usuarioApi:UsuarioApi, public navParams: NavParams,private toastCtrl: ToastController, public modalCtrl: ModalController) {
-
+if (!usuarioApi.isAuthenticated()) {
+         
+    }
   
 }
   
@@ -95,14 +97,15 @@ configuration = [
   toast.present();
   }
 
-  /*bookingAction(){
-    if (usuario =! ""){
-
-    } else {
-
+ selectModal(){
+   if(!this.usuarioApi.isAuthenticated()){
+      this.openModalNoAuth();
+      }
+    else{
+      this.openModal();
     }
+  }
 
-  } */
   openModal(){
     const myModal = this.modalCtrl.create('ModalPage');
     myModal.present();

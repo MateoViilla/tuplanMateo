@@ -1,17 +1,18 @@
 page-modal {
     .initial-text{
-        text-align: center;
+        text-align:center;
     }
     .container{
         background-color: #002636;
         border-radius: 10px;
         padding: 10px;
         margin: 2%;
-        .input-container{
-            background-color: #f4f4f4;
+        
+    }
+    .input-container{
+            background-color: white;
             border-radius:10px;
             padding: 2px;
         }
-    }
 
 }
