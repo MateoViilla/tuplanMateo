@@ -38,7 +38,7 @@ configuration = [
       Icon:"attach",
       Text:"Regalos para cumpleaños",
       DescriptionTittle:"Paquetes",
-      DescriptionText:"1, Garrafa + Kit de cumpleaños + aguas + cervezas, 450.000"
+      DescriptionText:"1, Garrafa + Kit de cumpleaños + aguas + cervezas, 450.000.     2, Garrafa + Kit de cumpleaños + aguas + cervezas, 450.000"
     },
     {
       Icon:"beer",
