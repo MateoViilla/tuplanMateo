@@ -65,7 +65,7 @@
         </ion-item>
          <ion-item *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
       <p color="danger" ion-text *ngIf="myForm.get('password').hasError('required')">Campo requerido</p>
-      <p color="danger" ion-text *ngIf="myForm.get('password').hasError('minlength')">Mínimo 4 caracteres</p>
+      <p color="danger" ion-text *ngIf="myForm.get('password').hasError('minlength')">Mínimo 6 caracteres</p>
     </ion-item>
 
         <ion-item>
@@ -75,7 +75,7 @@
         </ion-item>
         <ion-item *ngIf="myForm.get('passwordConfirmation').errors && myForm.get('passwordConfirmation').dirty">
       <p color="danger" ion-text *ngIf="myForm.get('passwordConfirmation').hasError('required')">Campo requerido</p>
-      <p color="danger" ion-text *ngIf="myForm.get('passwordConfirmation').hasError('minlength')">Mínimo 4 caracteres</p>
+      <p color="danger" ion-text *ngIf="myForm.get('passwordConfirmation').hasError('minlength')">Mínimo 6 caracteres</p>
       
     </ion-item>
 

@@ -50,8 +50,8 @@ export class RegistroPage {
     email : ['', [Validators.required, Validators.email]],
     dateBirth: [''],
     password: ['', [Validators.required,Validators.minLength(4), Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
-    passwordConfirmation: ['',[Validators.required, Validators.minLength(4), Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
-    phone: ['', Validators.compose([Validators.maxLength(20),Validators.minLength(5), Validators.pattern('[0-9 ]*'), Validators.required])],
+    passwordConfirmation: ['',[Validators.required, Validators.minLength(6), Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
+    phone: ['', Validators.compose([Validators.maxLength(20),Validators.minLength(6), Validators.pattern('[0-9 ]*'), Validators.required])],
     magicCode: ['']
   });
 
