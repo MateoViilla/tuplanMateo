@@ -18,11 +18,6 @@
   <ion-navbar color="azul">
     <ion-title>Registro</ion-title>
 
-    <ion-buttons end>
-      <button ion-button icon-only (click)="toHome()">
-      <ion-icon name="arrow-dropright"></ion-icon>
-    </button>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -32,76 +27,83 @@
 <ion-content padding style="background-image:url('https://unsplash.it/g/2200/4300?blur&image=1067');background-repeat: no-repeat;background-size: 100% 100%">
 
   <ion-card>
-    <form [formGroup]="myForm" (ngSubmit)="saveData()">
-      <ion-item>
-
+    <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+      <ion-list>
+      <ion-item >
         <ion-label floating>
           <ion-icon name="person" item-left></ion-icon> Nombre completo </ion-label>
         <ion-input formControlName="name" [(ngModel)]="account.name" type="text"> </ion-input>
       </ion-item>
+      <ion-item *ngIf="myForm.get('name').errors && myForm.get('name').dirty">
+      <p color="danger" ion-text *ngIf="myForm.get('name').hasError('required')">Campo requerido</p>
+      </ion-item>
+     
 
-         
-
-        <ion-item>
-          <ion-icon name="mail" item-left></ion-icon>
-          <ion-label floating >E-mail</ion-label>
-          <ion-input formControlName="email" type="email" ></ion-input>
-        </ion-item>
-
-
-        <ion-item>
-          <ion-icon name="calendar" item-left></ion-icon>
-          <ion-label stacked >Fecha de nacimiento</ion-label>
-          <ion-datetime formControlName="dateBirth" displayFormat="MM-DD-YYYY" placeholder="MM-DD-YYY"></ion-datetime>
-        </ion-item>
+      <ion-item>
+     <ion-label floating>
+          <ion-icon name="mail" item-left></ion-icon> Email </ion-label>
+      <ion-input formControlName="email" type="text"  [(ngModel)]="account.email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
+      <p color="danger" ion-text *ngIf="myForm.get('email').hasError('required')">Campo requerido</p>
+      <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">Ingresa un correo válido</p>
+    </ion-item>
 
       <ion-item>
         <ion-label stacked>
-          <ion-icon name="calendar" item-left></ion-icon>
-          Fecha de nacimiento</ion-label>
+        <ion-icon name="calendar" item-left></ion-icon>Fecha de nacimiento</ion-label>
         <ion-datetime formControlName="dateBirth" displayFormat="MM-DD-YYYY" [(ngModel)]="account.birthDate" placeholder="MM-DD-YYY"></ion-datetime>
       </ion-item>
-      <div formGroupName="passwordRetry">
+      <ion-item *ngIf="myForm.get('dateBirth').errors && myForm.get('dateBirth').dirty">
+      <p color="danger" ion-text *ngIf="myForm.get('dateBirth').hasError('required')">Campo requerido</p>
+    </ion-item>
+
         <ion-item>
           <ion-label floating>
-            <ion-icon name="eye" item-left></ion-icon>
-            Contraseña</ion-label>
+          <ion-icon name="eye" item-left></ion-icon>Contraseña</ion-label>
           <ion-input formControlName="password" type="password"[(ngModel)]="account.password" ></ion-input>
         </ion-item>
+         <ion-item *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
+      <p color="danger" ion-text *ngIf="myForm.get('password').hasError('required')">Campo requerido</p>
+      <p color="danger" ion-text *ngIf="myForm.get('password').hasError('minlength')">Mínimo 4 caracteres</p>
+    </ion-item>
 
         <ion-item>
           <ion-label floating>
-            <ion-icon name="eye" item-left></ion-icon>
-            Confirmar Contraseña</ion-label>
+          <ion-icon name="eye" item-left></ion-icon>Confirmar Contraseña</ion-label>
           <ion-input formControlName="passwordConfirmation" type="password"></ion-input>
         </ion-item>
-
-      </div>
+        <ion-item *ngIf="myForm.get('passwordConfirmation').errors && myForm.get('passwordConfirmation').dirty">
+      <p color="danger" ion-text *ngIf="myForm.get('passwordConfirmation').hasError('required')">Campo requerido</p>
+      <p color="danger" ion-text *ngIf="myForm.get('passwordConfirmation').hasError('minlength')">Mínimo 4 caracteres</p>
+      
+    </ion-item>
 
       <ion-item>
         <ion-label floating>
-          <ion-icon name="call" item-left></ion-icon>
-          Teléfono</ion-label>
+        <ion-icon name="call" item-left></ion-icon>Teléfono</ion-label>
         <ion-input formControlName="phone" [(ngModel)]="account.telefono"type="text"></ion-input>
       </ion-item>
+      
+      <p color="danger" ion-text *ngIf="myForm.get('phone').hasError('minlength')">Mímino 5 caracteres</p>
+      <p color="danger" ion-text *ngIf="myForm.get('phone').hasError('maxlength')">Máximo 20 caracteres</p>
+      <p color="danger" ion-text *ngIf="myForm.get('phone').hasError('pattern')">Ingresa un número válido</p>
+      
 
       <ion-item>
         <ion-label floating>
-          <ion-icon name="flash" item-left></ion-icon>
-          Código mágico </ion-label>
+        <ion-icon name="flash" item-left></ion-icon> Código mágico </ion-label>
         <ion-input formControlName="magicCode" [(ngModel)]="account.code"type="text"></ion-input>
       </ion-item>
+      </ion-list>
     </form>
   </ion-card>
 
 
-  <div padding>
-
-    <button style="margin-top: 15px;height: 35px;font-size: 14px;" ion-button color="azul" type="submit"  (click)="presentToast()">Listo</button>
-
-  </div>
+  <div padding><button style="margin-top: 15px;height: 35px;font-size: 14px;" ion-button color="azul" type="submit" [disabled]="!myForm.valid" round full (click)="presentToast()" (click)="toHome()">Listo</button></div>
 
 
+  
 
 
 </ion-content>
