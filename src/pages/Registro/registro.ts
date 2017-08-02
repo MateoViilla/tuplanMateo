@@ -49,7 +49,7 @@ export class RegistroPage {
     name: ['', Validators.compose([Validators.maxLength(10),Validators.minLength(2), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
     email : ['', [Validators.required, Validators.email]],
     dateBirth: [''],
-    password: ['', [Validators.required,Validators.minLength(4), Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
+    password: ['', [Validators.required,Validators.minLength(6), Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
     passwordConfirmation: ['',[Validators.required, Validators.minLength(6), Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
     phone: ['', Validators.compose([Validators.maxLength(20),Validators.minLength(6), Validators.pattern('[0-9 ]*'), Validators.required])],
     magicCode: ['']
