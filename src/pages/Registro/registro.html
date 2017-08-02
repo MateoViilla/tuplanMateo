@@ -39,22 +39,6 @@
       </ion-item>
      
 
-<<<<<<< HEAD
-         
-
-        <ion-item>
-          <ion-icon name="mail" item-left></ion-icon>
-          <ion-label floating >E-mail</ion-label>
-          <ion-input [(ngModel)]="account.email" formControlName="email" type="email" ></ion-input>
-        </ion-item>
-
-
-        <ion-item>
-          <ion-icon name="calendar" item-left></ion-icon>
-          <ion-label stacked >Fecha de nacimiento</ion-label>
-          <ion-datetime formControlName="dateBirth" displayFormat="MM-DD-YYYY" placeholder="MM-DD-YYY"></ion-datetime>
-        </ion-item>
-=======
       <ion-item>
      <ion-label floating>
           <ion-icon name="mail" item-left></ion-icon> Email </ion-label>
@@ -64,7 +48,6 @@
       <p color="danger" ion-text *ngIf="myForm.get('email').hasError('required')">Campo requerido</p>
       <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">Ingresa un correo válido</p>
     </ion-item>
->>>>>>> fdbc53c9a340571073dceb3b39c6f3bc143353f5
 
       <ion-item>
         <ion-label stacked>
