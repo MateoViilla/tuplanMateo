@@ -2,6 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, ToastController, ModalController } from 'ionic-angular';
 import { UsuarioApi } from '../../shared/sdk/services';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { EstablecimientoApi } from '../../shared/sdk/services';
+import { FilterProvider } from '../../providers/filter/filter';
+import { LoopBackConfig } from '../../shared/sdk';
+import { Establecimiento } from '../../shared/sdk/models';
+
 
 /**
  * Generated class for the DescriptionPage.
@@ -15,7 +20,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
   templateUrl: 'description.html',
 })
 export class DescriptionPage {
-slides = [
+  slides = [
     {
       image: "http://elcuervoeventos.com/wp-content/uploads/2016/11/La-Sagrada-Tienda.png",
     },
@@ -25,98 +30,111 @@ slides = [
     {
       image: "assets/img/christian-gertenbach-192353.jpg",
     }
-];
-
-configuration = [
-  {
-    Image: "http://elcuervoeventos.com/wp-content/uploads/2016/11/La-Sagrada-Tienda.png",
-    Tittle: "La sagrada tienda",
-    Description: "Medellin, Parque lleras",
-    Logo: "http://www.farrasnorte.com/clientes_base/min_486.jpg",
-    Name: "La sagrada tienda",
-    Services:[ {
-      Icon:"attach",
-      Text:"Regalos para cumpleaños",
-      DescriptionTittle:"Paquetes",
-      DescriptionText:"1, Garrafa + Kit de cumpleaños + aguas + cervezas, 450.000.     2, Garrafa + Kit de cumpleaños + aguas + cervezas, 450.000"
-    },
+  ];
+  
+  configuration = [
     {
-      Icon:"beer",
-      Text:"Rumba crossover",
-      DescriptionTittle:"Musica",
-      DescriptionText:"Salsa, bachata, merengue, vallenato, musica urbana y electronica"
-    },
-    {
-      Icon:"pint",
-      Text:"Barra libre",
-      DescriptionTittle:"Descripcion",
-      DescriptionText:"Barra libre para las mujeres de 10 a 12 los jueves y domingos"
-    },
-    {
-      Icon:"cart",
-      Text:"Descuentos promotores",
-      DescriptionTittle:"Descripcion",
-      DescriptionText:"Los mejores descuentos para los promotores, hasta del 15% de descuento en todo lo que se pueda consumir dentro del sitio"
-    },
-    {
-      Icon:"card",
-      Text:"Cover",
-      DescriptionTittle:"Precios y tarifas",
-      DescriptionText:"Jueves, viernes y domingos, no cover para mujeres, los sabados el cover tiene un precio de $10.000 COP"
-    }],
-    MaxPrice: "$430.000",
-    LowPrice: "$6.600",
-    Color:"danger",
-    Cover:"Si",
-    PrecioCover:"10.000",
-    TipoMoneda:"COP"
-  }];
+      Image: "http://elcuervoeventos.com/wp-content/uploads/2016/11/La-Sagrada-Tienda.png",
+      Tittle: "La sagrada tienda",
+      Description: "Medellin, Parque lleras",
+      Logo: "http://www.farrasnorte.com/clientes_base/min_486.jpg",
+      Name: "La sagrada tienda",
+      Services:[ {
+        Icon:"attach",
+        Text:"Regalos para cumpleaños",
+        DescriptionTittle:"Paquetes",
+        DescriptionText:"1, Garrafa + Kit de cumpleaños + aguas + cervezas, 450.000.     2, Garrafa + Kit de cumpleaños + aguas + cervezas, 450.000"
+      },
+      {
+        Icon:"beer",
+        Text:"Rumba crossover",
+        DescriptionTittle:"Musica",
+        DescriptionText:"Salsa, bachata, merengue, vallenato, musica urbana y electronica"
+      },
+      {
+        Icon:"pint",
+        Text:"Barra libre",
+        DescriptionTittle:"Descripcion",
+        DescriptionText:"Barra libre para las mujeres de 10 a 12 los jueves y domingos"
+      },
+      {
+        Icon:"cart",
+        Text:"Descuentos promotores",
+        DescriptionTittle:"Descripcion",
+        DescriptionText:"Los mejores descuentos para los promotores, hasta del 15% de descuento en todo lo que se pueda consumir dentro del sitio"
+      },
+      {
+        Icon:"card",
+        Text:"Cover",
+        DescriptionTittle:"Precios y tarifas",
+        DescriptionText:"Jueves, viernes y domingos, no cover para mujeres, los sabados el cover tiene un precio de $10.000 COP"
+      }],
+      MaxPrice: "$430.000",
+      LowPrice: "$6.600",
+      Color:"danger",
+      Cover:"Si",
+      PrecioCover:"10.000",
+      TipoMoneda:"COP"
+    }];
+  private establecimiento: Establecimiento=new Establecimiento();
 
   @ViewChild(Slides) slide: Slides;
-  constructor(public navCtrl: NavController,private photoViewer: PhotoViewer,private usuarioApi:UsuarioApi, public navParams: NavParams,private toastCtrl: ToastController, public modalCtrl: ModalController) {
-if (!usuarioApi.isAuthenticated()) {
-         
+  constructor(public navCtrl: NavController, private photoViewer: PhotoViewer,
+    private usuarioApi: UsuarioApi, public navParams: NavParams,
+    private toastCtrl: ToastController, public modalCtrl: ModalController,
+    private establecimientoApi: EstablecimientoApi, private filter: FilterProvider) {
+
+    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setApiVersion('api');
+
+    this.establecimientoApi.findById(this.filter.getEstablecimientoId()).subscribe((establecimiento: Establecimiento) => {
+      console.log(establecimiento);
+      this.establecimiento = establecimiento;
+    });
+
+    if (!usuarioApi.isAuthenticated()) {
+
     }
-  
-}
-  
-  ionViewDidLoad(){
+
   }
 
- slideChanged() {
+  ionViewDidLoad() {
+  }
+
+  slideChanged() {
     let currentIndex = this.slide.getActiveIndex();
     console.log('Current index is', currentIndex);
   }
-  presentToast(titulo,mensaje) {
-  let toast = this.toastCtrl.create({
-    message: titulo +': \n'+ mensaje,
-    duration: 3000,
-    position: 'top',
-    showCloseButton: true
-  });
-  toast.present();
+  presentToast(titulo, mensaje) {
+    let toast = this.toastCtrl.create({
+      message: titulo + ': \n' + mensaje,
+      duration: 3000,
+      position: 'top',
+      showCloseButton: true
+    });
+    toast.present();
   }
 
- selectModal(){
-   if(!this.usuarioApi.isAuthenticated()){
+  selectModal() {
+    if (!this.usuarioApi.isAuthenticated()) {
       this.openModalNoAuth();
-      }
-    else{
+    }
+    else {
       this.openModal();
     }
   }
 
-  openModal(){
+  openModal() {
     const myModal = this.modalCtrl.create('ModalPage');
     myModal.present();
   }
-  openModalNoAuth(){
+  openModalNoAuth() {
     const myModal = this.modalCtrl.create('ModalNoAuthPage');
     myModal.present();
   }
 
-  openPhoto(url){
-       this.photoViewer.show(url);
+  openPhoto(url) {
+    this.photoViewer.show(url);
 
   }
 }

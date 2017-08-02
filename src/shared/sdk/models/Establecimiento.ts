@@ -7,15 +7,21 @@ declare var Object: any;
 export interface EstablecimientoInterface {
   "nombre": string;
   "direccion": string;
+  "descripcion"?: string;
   "telefono"?: string;
   "numReservas"?: number;
-  "fMaxPrice"?: number;
+  "img"?: string;
+  "fmaxPrice"?: number;
   "flowPrice"?: number;
   "dmaxPrice"?: number;
   "dlowPrice"?: number;
   "music"?: string;
   "cover"?: number;
   "bday"?: boolean;
+  "ubicacion"?: string;
+  "images": Array<any>;
+  "color"?: string;
+  "services": Array<any>;
   "id"?: any;
   "categoriaId"?: any;
   "zonaId"?: any;
@@ -25,15 +31,21 @@ export interface EstablecimientoInterface {
 export class Establecimiento implements EstablecimientoInterface {
   "nombre": string;
   "direccion": string;
+  "descripcion": string;
   "telefono": string;
   "numReservas": number;
-  "fMaxPrice": number;
+  "img": string;
+  "fmaxPrice": number;
   "flowPrice": number;
   "dmaxPrice": number;
   "dlowPrice": number;
   "music": string;
   "cover": number;
   "bday": boolean;
+  "ubicacion": string;
+  "images": Array<any>;
+  "color": string;
+  "services": Array<any>;
   "id": any;
   "categoriaId": any;
   "zonaId": any;
@@ -77,6 +89,10 @@ export class Establecimiento implements EstablecimientoInterface {
           name: 'direccion',
           type: 'string'
         },
+        "descripcion": {
+          name: 'descripcion',
+          type: 'string'
+        },
         "telefono": {
           name: 'telefono',
           type: 'string'
@@ -85,8 +101,12 @@ export class Establecimiento implements EstablecimientoInterface {
           name: 'numReservas',
           type: 'number'
         },
-        "fMaxPrice": {
-          name: 'fMaxPrice',
+        "img": {
+          name: 'img',
+          type: 'string'
+        },
+        "fmaxPrice": {
+          name: 'fmaxPrice',
           type: 'number'
         },
         "flowPrice": {
@@ -112,6 +132,22 @@ export class Establecimiento implements EstablecimientoInterface {
         "bday": {
           name: 'bday',
           type: 'boolean'
+        },
+        "ubicacion": {
+          name: 'ubicacion',
+          type: 'string'
+        },
+        "images": {
+          name: 'images',
+          type: 'Array&lt;any&gt;'
+        },
+        "color": {
+          name: 'color',
+          type: 'string'
+        },
+        "services": {
+          name: 'services',
+          type: 'Array&lt;any&gt;'
         },
         "id": {
           name: 'id',

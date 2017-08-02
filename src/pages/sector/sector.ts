@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { SitioPage } from '../sitio/sitio';
 import { UsuarioApi } from '../../shared/sdk/services';
+import { FilterProvider } from '../../providers/filter/filter';
+import { ZonaApi } from '../../shared/sdk/services';
+import { LoopBackConfig } from '../../shared/sdk';
 
 
 /**
@@ -17,116 +20,125 @@ import { UsuarioApi } from '../../shared/sdk/services';
 })
 
 export class SectorPage {
-        slides = [
-          {
-            image: "assets/img/christian-gertenbach-192353.jpg",
-          },
-          {
-            image: "assets/img/christian-gertenbach-192353.jpg",
-          },
-          {
-            image: "assets/img/christian-gertenbach-192353.jpg",
-          }
-      ];
+  slides = [
+    {
+      image: "assets/img/christian-gertenbach-192353.jpg",
+    },
+    {
+      image: "assets/img/christian-gertenbach-192353.jpg",
+    },
+    {
+      image: "assets/img/christian-gertenbach-192353.jpg",
+    }
+  ];
 
-      sectors = [
-          {
-            sectorName: "Envigado",
-            image: "assets/img/christian-gertenbach-192353.jpg",
-            
-          },
-          {
-            sectorName: "Sabaneta",
-            image: "assets/img/joseph-gonzalez-110827.jpg",
-          },
-          {
-            sectorName: "Poblado",
-            image: "assets/img/modesta-zemgulyte-194520.jpg",
-          },
-          {
-            sectorName: "Bello",
-            image: "assets/img/christian-gertenbach-192353.jpg",
-            
-          }
-        ];
+  /*sectors = [
+      {
+        sectorName: "Envigado",
+        image: "assets/img/christian-gertenbach-192353.jpg",
+        
+      },
+      {
+        sectorName: "Sabaneta",
+        image: "assets/img/joseph-gonzalez-110827.jpg",
+      },
+      {
+        sectorName: "Poblado",
+        image: "assets/img/modesta-zemgulyte-194520.jpg",
+      },
+      {
+        sectorName: "Bello",
+        image: "assets/img/christian-gertenbach-192353.jpg",
+        
+      }
+    ];
+*/
+  private sectors: any;
+  myIcon: string = "";
 
-        myIcon: string = "";
 
-  
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              public alertCtrl: AlertController,
-              public toastCtrl: ToastController,
-              private usuarioApi:UsuarioApi) {
-    
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController,
+    private usuarioApi: UsuarioApi,
+    private filter: FilterProvider,
+    private zonaApi: ZonaApi) {
+    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setApiVersion('api');
+
+    console.log(this.filter.getCategoriaId());
+    this.zonaApi.find().subscribe((zonas: any) => {
+      console.log(zonas);
+      this.sectors = zonas
+    })
+
+
   }
 
   ionViewDidLoad() {
     this.selectUserIcon();
   }
 
-  nav(sector){
-    this.navCtrl.push(SitioPage, {
-      categoriaName: this.navParams.get('categoriaName'),
-      sectorName: sector.sectorName,
-      userName: this.navParams.get('userName')
-    });
-  
+  nav(sector) {
+    this.filter.setZonaId(sector.id)
+    this.navCtrl.push(SitioPage);
+
 
   }
-  
-     showConfirm() {
-        if (this.myIcon == "ios-contact") {
-          let confirm = this.alertCtrl.create({
-          title: 'Quieres cerrar sesión?',
-          //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
-          buttons: [
-            {
-              text: 'No',
-              handler: () => {
-              }
-            },
-            {
-              text: 'Si',
-              handler: () => {
-                console.log('Sesión cerrada');
-                this.showToast('bottom');
-              }
+
+  showConfirm() {
+    if (this.myIcon == "ios-contact") {
+      let confirm = this.alertCtrl.create({
+        title: 'Quieres cerrar sesión?',
+        //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+        buttons: [
+          {
+            text: 'No',
+            handler: () => {
             }
-          ]
-         });
-        confirm.present();
-        }
+          },
+          {
+            text: 'Si',
+            handler: () => {
+              console.log('Sesión cerrada');
+              this.showToast('bottom');
+            }
+          }
+        ]
+      });
+      confirm.present();
+    }
 
     else {
       let toast = this.toastCtrl.create({
-      message: 'Anónimo ;)',
-      duration: 2000,
-      position: 'bottom'
-    });
-    toast.present(toast);
+        message: 'Anónimo ;)',
+        duration: 2000,
+        position: 'bottom'
+      });
+      toast.present(toast);
     }
-     
+
   }
-   showToast(position: string) {
+  showToast(position: string) {
     let toast = this.toastCtrl.create({
-      message: this.navParams.get('userName')+'Sesión cerrada con éxito',
+      message: this.navParams.get('userName') + 'Sesión cerrada con éxito',
       duration: 2000,
       position: position
     });
     toast.present(toast);
-}
+  }
 
 
 
-public selectUserIcon(){
-      if(!this.usuarioApi.isAuthenticated()){
+  public selectUserIcon() {
+    if (!this.usuarioApi.isAuthenticated()) {
       this.myIcon = "md-glasses";
-      }
-    else{
+    }
+    else {
       this.myIcon = "ios-contact";
     }
   }
 
-  
+
 }

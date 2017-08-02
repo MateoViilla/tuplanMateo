@@ -18,6 +18,7 @@ import { BtnMagicoPage } from '../pages/boton-magico/btn_magico';
 import { BtnMagicoLugarPage } from '../pages/boton-magico-lugar/btn_magico_lugar';
 import { GlobalVarProvider } from '../providers/global-var/global-var';
 import { SDKBrowserModule } from '../shared/sdk/index';
+import { FilterProvider } from '../providers/filter/filter';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { SDKBrowserModule } from '../shared/sdk/index';
     PhotoViewer,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GlobalVarProvider
+    GlobalVarProvider,
+    FilterProvider
   ]
 })
 export class AppModule {}

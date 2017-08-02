@@ -38,9 +38,9 @@
   <div padding>
      <ion-card *ngFor="let categoria of categorias" (click)="toSectorPage(categoria)">
        
-     <img [src]="categoria.CategoriaImage" class="slide-image"/>
+     <img [src]="categoria.img" class="slide-image"/>
         <!-- Photo by modesta-zemgulyte on Unsplash-->
-        <div class="card-title">  {{categoria.categoriaName}}</div>
+        <div class="card-title">  {{categoria.nombre}}</div>
         <div class="card-subtitle">{{categoria.listing}}</div>
     </ion-card>
     

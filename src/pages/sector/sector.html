@@ -29,9 +29,9 @@
 <div padding>
  
   <ion-card *ngFor="let sector of sectors" (click)="nav(sector)">
-     <img [src]="sector.image" class="slide-image"/>
+     <img [src]="sector.img" class="slide-image"/>
         <!-- Photo by modesta-zemgulyte on Unsplash-->
-        <div class="card-title">  {{sector.sectorName}}</div>
+        <div class="card-title">  {{sector.nombre}}</div>
         <div class="card-subtitle">41 Listings</div>
     </ion-card>
 </div>

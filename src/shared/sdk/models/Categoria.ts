@@ -1,26 +1,23 @@
 /* tslint:disable */
 import {
-  Establecimiento,
-  Zona
+  Establecimiento
 } from '../index';
 
 declare var Object: any;
 export interface CategoriaInterface {
   "nombre"?: string;
-  "descripcion"?: string;
+  "descripcion": string;
+  "img": string;
   "id"?: any;
-  "zonaId"?: any;
   establecimientosXcategoria?: Establecimiento[];
-  zonasXcategoria?: Zona[];
 }
 
 export class Categoria implements CategoriaInterface {
   "nombre": string;
   "descripcion": string;
+  "img": string;
   "id": any;
-  "zonaId": any;
   establecimientosXcategoria: Establecimiento[];
-  zonasXcategoria: Zona[];
   constructor(data?: CategoriaInterface) {
     Object.assign(this, data);
   }
@@ -60,12 +57,12 @@ export class Categoria implements CategoriaInterface {
           name: 'descripcion',
           type: 'string'
         },
+        "img": {
+          name: 'img',
+          type: 'string'
+        },
         "id": {
           name: 'id',
-          type: 'any'
-        },
-        "zonaId": {
-          name: 'zonaId',
           type: 'any'
         },
       },
@@ -74,11 +71,6 @@ export class Categoria implements CategoriaInterface {
           name: 'establecimientosXcategoria',
           type: 'Establecimiento[]',
           model: 'Establecimiento'
-        },
-        zonasXcategoria: {
-          name: 'zonasXcategoria',
-          type: 'Zona[]',
-          model: 'Zona'
         },
       }
     }
