@@ -15,4 +15,5 @@ export class GlobalVarProvider {
     console.log('Hello GlobalVarProvider Provider');
   }
 
+
 }

@@ -5,6 +5,9 @@ import { ViewChild } from '@angular/core';
 import { SectorPage } from '../sector/sector';
 import { BtnMagicoPage } from '../boton-magico/btn_magico';
 import { InicioPage } from '../inicio/inicio';
+import { CategoriaApi } from '../../shared/sdk/services';
+import { LoopBackConfig } from '../../shared/sdk';
+import { FilterProvider } from '../../providers/filter/filter';
 
 import { UsuarioApi } from '../../shared/sdk/services';
 
@@ -17,6 +20,7 @@ import { UsuarioApi } from '../../shared/sdk/services';
 })
 export class CategoriaPage {
 
+private categorias:any;
   slides = [
     {
       image: "assets/img/Slider1.jpg",
@@ -29,35 +33,23 @@ export class CategoriaPage {
     }
 ];
 
+/*
 categorias  = [
     {
       categoriaName: "Restaurantes",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=1080",
-      listing: "41",
-    },
+      CategoriaImage: "https://unsplash.it/2000/608?blur&image=1080"    },
     {
       categoriaName: "Bares",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=766",
-      listing: "23",
-    },
-    /*
-    {
-      categoriaName: "Fondas",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=395",
-      listing: "20",
-    },*/
+      CategoriaImage: "https://unsplash.it/2000/608?blur&image=766"    },
+    
     {
       categoriaName: "Discotecas",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=274",
-      listing: "40",
-    },
+      CategoriaImage: "https://unsplash.it/2000/608?blur&image=274"    },
     {
       categoriaName: "Xtreme sports",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=773",
-      listing: "10",
-    }
+      CategoriaImage: "https://unsplash.it/2000/608?blur&image=773"    }
 ];
-
+*/
   
    user
 
@@ -68,10 +60,16 @@ categorias  = [
               public navParams: NavParams, 
               public alertCtrl: AlertController,
               public toastCtrl: ToastController,
-              private usuarioApi:UsuarioApi) {
-    if (!usuarioApi.isAuthenticated()) {
-         
-    }
+              private usuarioApi:UsuarioApi,
+              private categoriaApi:CategoriaApi,
+              private filter:FilterProvider) {
+                LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setApiVersion('api');
+
+categoriaApi.find().subscribe((categorias:any)=>{
+  console.log(categorias);
+this.categorias=categorias})
+    
   }
 
   ionViewDidLoad() {
@@ -84,12 +82,9 @@ categorias  = [
  
 
   toSectorPage(categoria) {
-
+ this.filter.setCategoriaId(categoria.id)
    // console.log(categoria.categoriaName);
-    this.navCtrl.push(SectorPage, {
-      categoriaName: categoria.categoriaName,
-      userName: this.user
-    })
+    this.navCtrl.push(SectorPage)
   }
 
   

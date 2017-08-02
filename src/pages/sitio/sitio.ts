@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { DescriptionPage } from '../description/description';
 import { UsuarioApi } from '../../shared/sdk/services';
+import { EstablecimientoApi } from '../../shared/sdk/services';
+import { FilterProvider } from '../../providers/filter/filter';
+import { LoopBackConfig } from '../../shared/sdk';
 
 
 
@@ -18,7 +21,7 @@ import { UsuarioApi } from '../../shared/sdk/services';
 })
 export class SitioPage {
 
-  Restaurants =[ 
+  /*Restaurants =[ 
     {
       Name: "Basílica",
       descripcion: "Description of Basílica",
@@ -65,9 +68,9 @@ export class SitioPage {
       puntaje: 10,
        image: "assets/img/modesta-zemgulyte-194520.jpg",
     },
-  ];
+  ]; */
 
-  
+
   slides = [
     {
       image: "https://unsplash.it/1000/800?image=892",
@@ -78,145 +81,139 @@ export class SitioPage {
     {
       image: "https://unsplash.it/1000/800?image=837",
     }
-];
-
-
-  discotecas = [
-    {
-      Name: "Babylon",
-      descripcion: "Description of Babylon",
-      puntaje: 10,
-      image: "https://unsplash.it/200/300?image=1062",
-    },
-    {
-      Name: "Bendito Seas",
-      descripcion: "Description of Bendito Seas",
-      puntaje: 10,
-      image: "https://unsplash.it/200/300?image=1074",
-    },
-    {
-      Name: "Sixtina",
-      descripcion: "Description of Sixtina",
-      puntaje: 10,
-      image: "https://unsplash.it/200/300?image=1024",
-    }
   ];
-
-  Xtreme_sports = [
-    {
-      Name: "Parapente",
-      descripcion: "Description of Parapente",
-      puntaje: 10,
-      image: "https://unsplash.it/200/300?image=1062",
-    },
-    {
-      Name: "Paintball",
-      descripcion: "Description of Paintball",
-      puntaje: 10,
-      image: "https://unsplash.it/200/300?image=1074",
-    },
-    {
-      Name: "Cuatrimoto",
-      descripcion: "Description of Cuatrimoto",
-      puntaje: 10,
-      image: "https://unsplash.it/200/300?image=1024",
-    }
-  ];
+  /*
   
-  listas  
-  categoriaName
+    discotecas = [
+      {
+        Name: "Babylon",
+        descripcion: "Description of Babylon",
+        puntaje: 10,
+        image: "https://unsplash.it/200/300?image=1062",
+      },
+      {
+        Name: "Bendito Seas",
+        descripcion: "Description of Bendito Seas",
+        puntaje: 10,
+        image: "https://unsplash.it/200/300?image=1074",
+      },
+      {
+        Name: "Sixtina",
+        descripcion: "Description of Sixtina",
+        puntaje: 10,
+        image: "https://unsplash.it/200/300?image=1024",
+      }
+    ];
+  
+    Xtreme_sports = [
+      {
+        Name: "Parapente",
+        descripcion: "Description of Parapente",
+        puntaje: 10,
+        image: "https://unsplash.it/200/300?image=1062",
+      },
+      {
+        Name: "Paintball",
+        descripcion: "Description of Paintball",
+        puntaje: 10,
+        image: "https://unsplash.it/200/300?image=1074",
+      },
+      {
+        Name: "Cuatrimoto",
+        descripcion: "Description of Cuatrimoto",
+        puntaje: 10,
+        image: "https://unsplash.it/200/300?image=1024",
+      }
+    ];
+    */
+  private listas: any;
   myIcon: string = "";
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public alertCtrl: AlertController,
-              public toastCtrl: ToastController,
-              private usuarioApi:UsuarioApi) {
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController,
+    private usuarioApi: UsuarioApi,
+    private establecimientoApi: EstablecimientoApi,
+    private filter: FilterProvider) {
 
-  this.categoriaName = navParams.get('categoriaName');
+    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setApiVersion('api');
+
+    establecimientoApi.find({ where: { categoriaId: this.filter.getCategoriaId(), zonaId: this.filter.getZonaId() } }).subscribe((sitios: any) => {
+      console.log(sitios);
+      this.listas = sitios
+    })
+
+
+
   }
 
   ionViewDidLoad() {
     this.selectUserIcon();
 
     console.log(this.navParams.data);
-    this.cargarDatos(this.navParams.get('categoriaName'));
-  }
-
-  public cargarDatos(categoriaName){
-    if(categoriaName == "Restaurantes"){
-      this.listas = this.Restaurants;
-    }
-    else
-    if(categoriaName == "Bares"){
-      this.listas = this.Bar;
-    }
-    else 
-    if(categoriaName == "Discotecas"){
-      this.listas = this.discotecas;
-    }
-    else 
-    if(categoriaName == "Xtreme sports"){
-      this.listas = this.Xtreme_sports;
-    }
-  }
-
-  nav(){
-      this.navCtrl.push(DescriptionPage);
   }
 
 
- 
-   showConfirm() {
-        if (this.myIcon == "ios-contact") {
-          let confirm = this.alertCtrl.create({
-          title: 'Quieres cerrar sesión?',
-          //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
-          buttons: [
-            {
-              text: 'No',
-              handler: () => {
-              }
-            },
-            {
-              text: 'Si',
-              handler: () => {
-                console.log('Sesión cerrada');
-                this.showToast('bottom');
-              }
+
+  nav(sitio) {
+    this.filter.setEstablecimientoId(sitio.id);
+    this.navCtrl.push(DescriptionPage);
+  }
+
+
+
+  showConfirm() {
+    if (this.myIcon == "ios-contact") {
+      let confirm = this.alertCtrl.create({
+        title: 'Quieres cerrar sesión?',
+        //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+        buttons: [
+          {
+            text: 'No',
+            handler: () => {
             }
-          ]
-         });
-        confirm.present();
-        }
+          },
+          {
+            text: 'Si',
+            handler: () => {
+              console.log('Sesión cerrada');
+              this.showToast('bottom');
+            }
+          }
+        ]
+      });
+      confirm.present();
+    }
 
     else {
       let toast = this.toastCtrl.create({
-      message: 'Anónimo ;)',
-      duration: 2000,
-      position: 'bottom'
-    });
-    toast.present(toast);
+        message: 'Anónimo ;)',
+        duration: 2000,
+        position: 'bottom'
+      });
+      toast.present(toast);
     }
-     
+
   }
 
-   showToast(position: string) {
+  showToast(position: string) {
     let toast = this.toastCtrl.create({
-      message: this.navParams.get('userName')+'Session closed successfully',
+      message: this.navParams.get('userName') + 'Session closed successfully',
       duration: 2000,
       position: position
     });
     toast.present(toast);
-}
+  }
 
 
 
-  public selectUserIcon(){
-      if(!this.usuarioApi.isAuthenticated()){
+  public selectUserIcon() {
+    if (!this.usuarioApi.isAuthenticated()) {
       this.myIcon = "md-glasses";
-      }
-    else{
+    }
+    else {
       this.myIcon = "ios-contact";
     }
   }

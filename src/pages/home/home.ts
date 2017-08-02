@@ -38,7 +38,7 @@ private signin(): void {
          err="Usuario o Contraseña Incorrectos"
        }if(error.statusCode==400){
          err="Se deben llenar todos los campos"
-       }else{
+       }if(err==null){
          err="No hay conexion"
        }
        let toast = this.toastCtrl.create({

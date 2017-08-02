@@ -5,11 +5,10 @@ import {
 
 declare var Object: any;
 export interface UsuarioInterface {
-  "userName": string;
-  "email": string;
+  "email"?: any;
   "telefono": string;
   "birthDate": string;
-  "code": string;
+  "code"?: string;
   "realm"?: string;
   "username"?: string;
   "emailVerified"?: boolean;
@@ -20,8 +19,7 @@ export interface UsuarioInterface {
 }
 
 export class Usuario implements UsuarioInterface {
-  "userName": string;
-  "email": string;
+  "email": any;
   "telefono": string;
   "birthDate": string;
   "code": string;
@@ -63,13 +61,9 @@ export class Usuario implements UsuarioInterface {
       name: 'Usuario',
       plural: 'usuarios',
       properties: {
-        "userName": {
-          name: 'userName',
-          type: 'string'
-        },
         "email": {
           name: 'email',
-          type: 'string'
+          type: 'any'
         },
         "telefono": {
           name: 'telefono',

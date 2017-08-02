@@ -13,10 +13,14 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'modal-no-auth.html',
 })
 export class ModalNoAuthPage {
-
+  reserva:{};
   constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+    this.reserva={}
   }
-
+  
+  mostrar(){
+    console.log(this.reserva);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalNoAuthPage');
   }
