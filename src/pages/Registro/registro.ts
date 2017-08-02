@@ -10,6 +10,7 @@ import { UsuarioApi } from '../../shared/sdk/services';
 
 
 
+
 @Component({
   selector: 'page-registro page-categorias',
   templateUrl: 'registro.html'
@@ -40,43 +41,29 @@ export class RegistroPage {
     }
 
 
-                
 
-              
-
-
-
-  
   
   private createMyForm(){
   return this.formBuilder.group({
 
     name: ['', Validators.compose([Validators.maxLength(10),Validators.minLength(2), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-    email : ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(50),Validators.pattern(/^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i)])],
-    phone: ['', Validators.compose([Validators.maxLength(20),Validators.minLength(5), Validators.pattern('[0-9 ]*'), Validators.required])],
-    dateBirth: ['', Validators.required],
-    passwordRetry: this.formBuilder.group({
-      password: ['', Validators.required],
-      passwordConfirmation: ['', Validators.required]
-    }),
-    gender: ['', Validators.required],
+    email : ['', [Validators.required, Validators.email]],
+    dateBirth: [''],
+    password: ['', [Validators.required,Validators.minLength(4), Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
+    passwordConfirmation: ['',[Validators.required, Validators.minLength(6), Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
+    phone: ['', Validators.compose([Validators.maxLength(20),Validators.minLength(6), Validators.pattern('[0-9 ]*'), Validators.required])],
     magicCode: ['']
   });
 
   }
 
-   emailValidator(control: FormControl): {[s: string]: boolean} {
-    if (!(control.value.toLowerCase().match('^[a-zA-Z]\\w*@gmail\\.com$') || control.value.toLowerCase().match('^[a-zA-Z]\\w*@yahoo\\.com$'))) {
-      return {invalidEmail: true};
-    }
-  }
     
 goToCategories(): void{
   this.navCtrl.push(CategoriaPage);
 }
   presentToast() {
-    let toast = this.toastCtrl.create({
-      message: 'User was added successfully',
+    let toast = this.toastCtrl.create({ 
+      message: 'Cuenta creada correctamente',
       duration: 3000
     });
     toast.present();
