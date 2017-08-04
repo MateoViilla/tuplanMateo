@@ -108,7 +108,7 @@ export class DescriptionPage {
   presentToast(titulo, mensaje) {
     let toast = this.toastCtrl.create({
       message: titulo + ': \n' + mensaje,
-      duration: 3000,
+      duration: 10000,
       position: 'top',
       showCloseButton: true
     });
@@ -137,4 +137,5 @@ export class DescriptionPage {
     this.photoViewer.show(url);
 
   }
+ 
 }
