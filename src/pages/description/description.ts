@@ -137,5 +137,4 @@ export class DescriptionPage {
     this.photoViewer.show(url);
 
   }
- 
 }
