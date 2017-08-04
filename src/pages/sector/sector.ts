@@ -5,6 +5,7 @@ import { UsuarioApi } from '../../shared/sdk/services';
 import { FilterProvider } from '../../providers/filter/filter';
 import { ZonaApi } from '../../shared/sdk/services';
 import { LoopBackConfig } from '../../shared/sdk';
+import {InicioPage} from '../inicio/inicio'
 
 
 /**
@@ -101,6 +102,8 @@ export class SectorPage {
           {
             text: 'Si',
             handler: () => {
+              this.navCtrl.push(InicioPage);
+              this.usuarioApi.logout();
               console.log('Sesión cerrada');
               this.showToast('bottom');
             }

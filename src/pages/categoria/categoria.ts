@@ -103,6 +103,8 @@ this.categorias=categorias})
             {
               text: 'Si',
               handler: () => {
+                this.navCtrl.push(InicioPage);
+                this.usuarioApi.logout();
                 console.log('Sesión cerrada');
                 this.showToast('bottom');
               }
