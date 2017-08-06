@@ -137,4 +137,8 @@ export class DescriptionPage {
     this.photoViewer.show(url);
 
   }
+  openModalMap() {
+    const myModal = this.modalCtrl.create('MapPage', this.establecimiento);
+    myModal.present();
+  }
 }
