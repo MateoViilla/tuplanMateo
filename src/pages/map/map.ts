@@ -51,7 +51,8 @@ export class MapPage {
         });
         var marker = new google.maps.Marker({
           position: place,
-          map: map
+          map: map,
+          label: this.ubi.nombre
 
         });
   }

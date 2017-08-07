@@ -141,7 +141,7 @@ export class SitioPage {
     LoopBackConfig.setApiVersion('api');
 
     establecimientoApi.find({ where: { categoriaId: this.filter.getCategoriaId(), zonaId: this.filter.getZonaId() } }).subscribe((sitios: any) => {
-      console.log(sitios);
+      console.log(sitios.establecimiento);
       this.listas = sitios
     })
 
@@ -158,6 +158,7 @@ export class SitioPage {
 
 
   nav(sitio) {
+    console.log(sitio);
     this.filter.setEstablecimientoId(sitio.id);
     this.navCtrl.push(DescriptionPage);
   }
