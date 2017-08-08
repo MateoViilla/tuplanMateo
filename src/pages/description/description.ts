@@ -108,7 +108,6 @@ export class DescriptionPage {
   presentToast(titulo, mensaje) {
     let toast = this.toastCtrl.create({
       message: titulo + ': \n' + mensaje,
-      duration: 10000,
       position: 'top',
       showCloseButton: true
     });

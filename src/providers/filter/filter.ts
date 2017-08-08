@@ -12,11 +12,22 @@ import 'rxjs/add/operator/map';
 export class FilterProvider {
   private categoriaId:String;
   private zonaId:String;
+  private genero:String;
   private establecimientoId:String;
 
 
   constructor(public http: Http) {
   }
+
+  
+  getGenero():String{
+    return this.genero
+
+  }
+  setGenero(generoS):void{
+    this.genero=generoS;
+  }
+
   getCategoriaId():String{
     return this.categoriaId
 

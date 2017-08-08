@@ -64,11 +64,11 @@ categorias  = [
               private categoriaApi:CategoriaApi,
               private filter:FilterProvider) {
                 LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
-    LoopBackConfig.setApiVersion('api');
+                LoopBackConfig.setApiVersion('api');
 
-categoriaApi.find().subscribe((categorias:any)=>{
+  categoriaApi.find().subscribe((categorias:any)=>{
   console.log(categorias);
-this.categorias=categorias})
+  this.categorias=categorias})
     
   }
 
