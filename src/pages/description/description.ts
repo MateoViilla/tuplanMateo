@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, ToastController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, ToastController, ModalController, AlertController} from 'ionic-angular';
 import { UsuarioApi } from '../../shared/sdk/services';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { EstablecimientoApi } from '../../shared/sdk/services';
@@ -82,7 +82,8 @@ export class DescriptionPage {
   constructor(public navCtrl: NavController, private photoViewer: PhotoViewer,
     private usuarioApi: UsuarioApi, public navParams: NavParams,
     private toastCtrl: ToastController, public modalCtrl: ModalController,
-    private establecimientoApi: EstablecimientoApi, private filter: FilterProvider) {
+    private establecimientoApi: EstablecimientoApi, private filter: FilterProvider,
+    private alertCtrl:AlertController) {
 
     LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
@@ -136,4 +137,18 @@ export class DescriptionPage {
     this.photoViewer.show(url);
 
   }
+  openModalMap() {
+    const myModal = this.modalCtrl.create('MapPage', this.establecimiento);
+    myModal.present();
+  }
+
+  presentAlert(titulo, mensaje) {
+  let alert = this.alertCtrl.create({
+    title: titulo,
+    subTitle: mensaje,
+    buttons: ['Entendido']
+  });
+  alert.present();
+}
+
 }

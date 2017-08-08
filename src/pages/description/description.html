@@ -25,21 +25,19 @@
         <div class="item-tittle">
           <ion-label class="text-tittle">{{establecimiento.nombre}}</ion-label>
           <ion-label class="text-subtittle">{{establecimiento.direccion}}</ion-label>
-          <button ion-button *ngFor="let configurations of configuration" class="button-booking" color="{{establecimiento.color}}"
+          <button ion-button class="button-booking" color="{{establecimiento.color}}"
             (click)='selectModal()'>Reservar ahora</button>
         </div>
       </ion-col>
 
     </ion-row>
   </ion-grid>
-   <button ion-button full color="{{establecimiento.color}}">Mira nuestra ubicacion</button> 
-
-
+   <button ion-button full color="{{establecimiento.color}}" (click)="openModalMap()">Mira nuestra ubicacion</button> 
 
   <ion-label padding style="text-align:center" class="text-tittle-services">Nuestros servicios</ion-label>
   <ion-card class="list-container">
     <ion-list>
-      <button ion-item *ngFor="let services of establecimiento['services']" (click)='presentToast(services.titulo,services.descripcion)'>
+      <button ion-item *ngFor="let services of establecimiento['services']" (click)='presentAlert(services.titulo,services.descripcion)'>
         <!-- <ion-icon name="{{services.icon}}" item-start></ion-icon> -->
            <ion-icon name="attach" item-start></ion-icon>
          {{services.titulo}}
@@ -58,14 +56,13 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let image of establecimiento['images']">
-        <!-- <img [src]="image" style="height:120px;width:100%"
-          (click)="openPhoto(image)"> -->
         <img src="https://www.discotecasmedellin.com/wp-content/uploads/2016/02/carta-licochorro-precios.png" style="height:120px;width:100%"
-          (click)="openPhoto(image)">
-
+          (click)="openPhoto('https://www.discotecasmedellin.com/wp-content/uploads/2016/02/carta-licochorro-precios.png')">
       </ion-col>
-
-
+      <ion-col *ngFor="let image of establecimiento['images']">
+        <img src="https://www.discotecasmedellin.com/wp-content/uploads/2016/02/carta-licochorro-precios.png" style="height:120px;width:100%"
+          (click)="openPhoto('https://www.discotecasmedellin.com/wp-content/uploads/2016/02/carta-licochorro-precios.png')">
+      </ion-col>
     </ion-row>
   </ion-grid>
 
