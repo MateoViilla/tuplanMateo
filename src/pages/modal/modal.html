@@ -30,7 +30,7 @@
 <div class="container">
     <ion-label color="light" style="text-align:left;font-weight: bold;">¿Para cuantas personas quieres la reserva?*</ion-label>
     <div class="input-container">
-      <ion-input type="number" placeholder=""></ion-input>
+      <ion-input type="number" [(ngModel)]="reserva.numeroPersonas" placeholder=""></ion-input>
     </div>
     <div class="input-container" style="margin-top:10px;margin-bottom:10px; background-color:white">
     <ion-grid>
@@ -39,7 +39,7 @@
           <ion-label>¿Es un cumpleaños?*</ion-label>
           </ion-col>
             <ion-col>
-              <ion-list radio-group [(ngModel)]="relationship">
+              <ion-list radio-group [(ngModel)]="reserva.cumpleanos">
                 <ion-item>
                   <ion-label>Si</ion-label>
                   <ion-radio value="yes" checked></ion-radio>
@@ -54,8 +54,8 @@
         </ion-grid>
     </div>
     <ion-item>
-        <ion-label>¿Para cuando?*</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+        <ion-label>Fecha*</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="reserva.date"></ion-datetime>
    </ion-item>
       </div>
 
@@ -63,7 +63,7 @@
 
   <div align="center" style="position: relative; ">
         
-        <button ion-button  round  color="azul" (click)="toRegistro()">
+        <button ion-button  round  color="azul" (click)="mostrar()">
           <ion-icon name="md-log-in"  color="toolbar"></ion-icon>
           Completar
         </button>

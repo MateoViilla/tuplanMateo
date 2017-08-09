@@ -14,7 +14,7 @@ export class FilterProvider {
   private zonaId:String;
   private genero:String;
   private establecimientoId:String;
-
+  private establecimiento:String;
 
   constructor(public http: Http) {
   }
@@ -34,6 +34,14 @@ export class FilterProvider {
   }
   setCategoriaId(categoriaId):void{
     this.categoriaId=categoriaId;
+  }
+
+  getEstablecimiento():String{
+    return this.establecimiento
+
+  }
+  setEstablecimiento(establecimiento):void{
+    this.establecimiento=establecimiento;
   }
 
   getZonaId():String{
