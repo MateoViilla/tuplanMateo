@@ -19,8 +19,6 @@ export class FilterProvider {
   constructor(public http: Http) {
   }
 
-<<<<<<< HEAD
-=======
   
   getGenero():String{
     return this.genero
@@ -30,7 +28,6 @@ export class FilterProvider {
     this.genero=generoS;
   }
 
->>>>>>> 69d1dc5cebbdc75f20951c97dfe0ed359d279143
   getCategoriaId():String{
     return this.categoriaId
 
