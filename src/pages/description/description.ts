@@ -21,15 +21,6 @@ import { Establecimiento } from '../../shared/sdk/models';
 })
 export class DescriptionPage {
   slides = [
-    {
-      image: "http://elcuervoeventos.com/wp-content/uploads/2016/11/La-Sagrada-Tienda.png",
-    },
-    {
-      image: "assets/img/christian-gertenbach-192353.jpg",
-    },
-    {
-      image: "assets/img/christian-gertenbach-192353.jpg",
-    }
   ];
   
   configuration = [
@@ -91,6 +82,7 @@ export class DescriptionPage {
     this.establecimientoApi.findById(this.filter.getEstablecimientoId()).subscribe((establecimiento: Establecimiento) => {
       console.log(establecimiento);
       this.establecimiento = establecimiento;
+      this.slides=establecimiento.images;
     });
 
     if (!usuarioApi.isAuthenticated()) {
@@ -147,6 +139,7 @@ export class DescriptionPage {
     title: titulo,
     subTitle: mensaje,
     buttons: ['Entendido']
+    
   });
   alert.present();
 }
