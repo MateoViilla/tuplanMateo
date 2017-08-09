@@ -5,7 +5,11 @@ page-boton_magico{
         h1{
             font-size: 32px;
         }
-
+        
+        ion-item{
+            border-radius: 1px;
+            background: linear-gradient(1deg, rgba(350, 350, 350, 0.4px), #002636);
+        }
     
  
 }

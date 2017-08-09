@@ -10,7 +10,7 @@
 
   <ion-slides pager full>
     <ion-slide *ngFor="let slide of slides">
-      <img [src]="slide.image" class="slide-image" />
+      <img [src]="slide" class="slide-image" style="width:100%;height:70%"/>
     </ion-slide>
   </ion-slides>
 
@@ -18,28 +18,28 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div> <img src="http://www.farrasnorte.com/clientes_base/min_486.jpg" class="image-logo"> </div>
+        <div> <img src="{{establecimiento.img}}" class="image-logo"> </div>
 
       </ion-col>
       <ion-col>
         <div class="item-tittle">
           <ion-label class="text-tittle">{{establecimiento.nombre}}</ion-label>
           <ion-label class="text-subtittle">{{establecimiento.direccion}}</ion-label>
-          <button ion-button *ngFor="let configurations of configuration" class="button-booking" color="{{establecimiento.color}}"
+          <button ion-button class="button-booking" color="{{establecimiento.color}}"
             (click)='selectModal()'>Reservar ahora</button>
         </div>
       </ion-col>
 
     </ion-row>
   </ion-grid>
-
+   <button ion-button full color="{{establecimiento.color}}" (click)="openModalMap()">Mira nuestra ubicacion</button> 
 
   <ion-label padding style="text-align:center" class="text-tittle-services">Nuestros servicios</ion-label>
   <ion-card class="list-container">
     <ion-list>
-      <button ion-item *ngFor="let services of establecimiento['services']" (click)='presentToast(services.titulo,services.descripcion)'>
-        <!-- <ion-icon name="{{services.icon}}" item-start></ion-icon> -->
-           <ion-icon name="attach" item-start></ion-icon>
+      <button ion-item *ngFor="let services of establecimiento['services']" (click)='presentAlert(services.titulo,services.descripcion)'>
+           <ion-icon name="{{services.icon}}" item-start></ion-icon> 
+          <!-- <ion-icon name="attach" item-start></ion-icon> -->
          {{services.titulo}}
         </button>
     </ion-list>
@@ -47,23 +47,22 @@
   <ion-label padding style="text-align:center" class="text-tittle-services">Precios</ion-label>
   <ion-list radio-group>
     <ion-item>
-      <ion-label>Precio máximo: {{establecimiento.dmaxPrice}}</ion-label>
+      <ion-label>Precio máximo: $ {{establecimiento.dmaxPrice}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Precio mínimo: {{establecimiento.dlowPrice}}</ion-label>
+      <ion-label>Precio mínimo: $ {{establecimiento.dlowPrice}}</ion-label>
     </ion-item>
   </ion-list>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let image of establecimiento['images']">
-        <!-- <img [src]="image" style="height:120px;width:100%"
-          (click)="openPhoto(image)"> -->
-        <img src="https://www.discotecasmedellin.com/wp-content/uploads/2016/02/carta-licochorro-precios.png" style="height:120px;width:100%"
-          (click)="openPhoto(image)">
-
+      <ion-col >
+        <img src="https://s-media-cache-ak0.pinimg.com/236x/76/bd/8b/76bd8b9214c6c8cf9eb61075f1bb50ba--visit-colombia-colombia-travel.jpg" style="height:120px;width:100%"
+          (click)="openPhoto('https://s-media-cache-ak0.pinimg.com/236x/76/bd/8b/76bd8b9214c6c8cf9eb61075f1bb50ba--visit-colombia-colombia-travel.jpg')">
       </ion-col>
-
-
+      <ion-col >
+        <img src="https://s-media-cache-ak0.pinimg.com/236x/76/bd/8b/76bd8b9214c6c8cf9eb61075f1bb50ba--visit-colombia-colombia-travel.jpg" style="height:120px;width:100%"
+          (click)="openPhoto('https://s-media-cache-ak0.pinimg.com/236x/76/bd/8b/76bd8b9214c6c8cf9eb61075f1bb50ba--visit-colombia-colombia-travel.jpg')">
+      </ion-col>
     </ion-row>
   </ion-grid>
 

@@ -9,9 +9,11 @@
 <ion-header>
 
   <ion-navbar color="azul">
-    <ion-buttons>
+    <ion-title>Reserva</ion-title>
+    <ion-buttons end>
    <button  ion-button (click)='closeModal()'> Cerrar</button>
   </ion-buttons>
+  
   </ion-navbar>
  
 
@@ -20,25 +22,26 @@
 
 <ion-content padding style="background-image:url('https://unsplash.it/2200/4300?image=579');background-repeat: no-repeat;background-size: 100% 100%">
   <h5 ion-text color="light"class="initial-text">Ingresa la siguiente información para completar tu reserva</h5>
-    <div align="center" style="position: relative;">
+    <p ion-text color="light"class="initial-text">Recuerda reservar con 24 horas de anticipación *</p>
+  <div align="center" style="position: relative;">
 
   <img src="assets/img/Tu plan-final iconos logos-09.png"/>
   
 </div>
   <div class="container">
-    <ion-label color="light">Nombre</ion-label>
+    <ion-label color="light">¿Cual es tu nombre?*</ion-label>
       <div class="input-container">
        <ion-input [(ngModel)]="reserva.nombre"></ion-input>
       </div>
-    <ion-label color="light">Telefono</ion-label>
+    <ion-label color="light">¡Déjanos tu telefono!*</ion-label>
       <div class="input-container">
        <ion-input [(ngModel)]="reserva.telefono"></ion-input>
       </div>
-    <ion-label color="light">Correo</ion-label>
+    <ion-label color="light">¿A que correo te contactamos?</ion-label>
     <div class="input-container">
       <ion-input [(ngModel)]="reserva.correo"></ion-input>
     </div>
-    <ion-label color="light">Numero de personas</ion-label>
+    <ion-label color="light">¿Para cuantas personas quieres la reserva?</ion-label>
     <div class="input-container">
       <ion-input type="number" placeholder="" [(ngModel)]="reserva.numeroPersonas"></ion-input>
     </div>
@@ -46,7 +49,7 @@
     <ion-grid>
     <ion-row>
           <ion-col>
-          <ion-label>¿Cumpleaños?*</ion-label>
+          <ion-label>¿Es un Cumpleaños?*</ion-label>
           </ion-col>
             <ion-col>
               <ion-list radio-group [(ngModel)]="reserva.cumpleanos">
@@ -64,7 +67,7 @@
         </ion-grid>
     </div>
     <ion-item>
-        <ion-label>Fecha*</ion-label>
+        <ion-label>¿Para cuando?*</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="reserva.date"></ion-datetime>
    </ion-item>
 

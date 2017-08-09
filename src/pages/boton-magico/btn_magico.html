@@ -1,6 +1,7 @@
 
 
-<ion-content padding id="magico" style="background-color: black" >
+<ion-content padding style="background-image:url('https://unsplash.it/2200/4300?image=579');background-repeat: no-repeat;background-size: 100% 100%">
+
     <ion-grid>
     <ion-row justify-content-start>
     <ion-col>
@@ -12,21 +13,34 @@
   </ion-row>
     </ion-grid>
     <h1 text-center style="color:white">Bienvenido a tu asistente mágico</h1>
-    <p text-center style="color:white;margin-top: 20%">¿Cuentanos que tipo de plan tienes en mente? escoge a continuacion una categoria</p>
+    <h3 text-center style="color:white;">¿Que plan tienes en mente? escogelo ahora!</h3>
    
-  
-    <ion-list style="margin-top: 20%">
-        <ion-item>
-            <ion-label>Escoge uno</ion-label>
-            <ion-select [(ngModel)]="Categories">
-            <ion-option value="Discoteca">Discoteca</ion-option>
-            <ion-option value="Fonda">Fonda</ion-option>
-            <ion-option value="Restaurante">Restaurante</ion-option>
-            <ion-option value="Deporte_Extremo">Deporte Extremo</ion-option>
-            
-            </ion-select>
-        </ion-item>
-    </ion-list>
 
-    <button ion-button block round outline style="margin-top:40%;margin-bottom:5%" (click)="toBtnMagicoLugar()">Siguiente</button>
+
+            <ion-item>
+            <ion-label>Categoría</ion-label>
+            <ion-select [(ngModel)]="categoriaSeleccionada" interface="action-sheet">
+            <ion-option *ngFor="let categoria of categorias" value="{{categoria.id}}"  >  {{ categoria.nombre}} </ion-option>
+            </ion-select>
+            </ion-item>
+
+            <ion-item>
+            <ion-label>Zona</ion-label>
+            <ion-select [(ngModel)]="zonaSeleccionada" interface="action-sheet">
+            <ion-option *ngFor="let zona of zonas" value="{{zona.id}}"  >  {{ zona.nombre}} </ion-option>
+            </ion-select>
+            </ion-item>
+            
+            <ion-item>
+            <ion-label>Género</ion-label>
+            <ion-select [(ngModel)]="generoSeleccionado" interface="action-sheet">
+            <ion-option *ngFor="let genero of generos" value="{{genero.nombre}}"  >  {{ genero.nombre}} </ion-option>
+            </ion-select>
+            </ion-item>
+
+
+
+    <button ion-button block round outline style="margin-top:40%;margin-bottom:5%" (click)="setEstablecimientos()">Siguiente</button>
 </ion-content>
+
+

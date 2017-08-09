@@ -1,4 +1,5 @@
 page-description{
+    
     .card-background-page{
         background-color: #FCFAFA;
         ion-slides{
@@ -15,13 +16,13 @@ page-description{
             margin-top:2%;
             margin-left:10%;
             
-            height: 110px;
-            width: 90px;
+            height: 100px;
+            width: 100px;
             border-radius: 100%;
          }
         .item-tittle{
             margin-top: 10%;
-            margin-left: -10%;
+            margin-left: -12%;
             margin-right: 10%;
            .text-tittle{
             align-content: center;
@@ -53,7 +54,7 @@ page-description{
             border-radius: 10px;
         }
         .button-booking{
-           
+           border-radius: 5px;
         }
     }
 }

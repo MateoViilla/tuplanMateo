@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, ToastController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, ToastController, ModalController, AlertController} from 'ionic-angular';
 import { UsuarioApi } from '../../shared/sdk/services';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { EstablecimientoApi } from '../../shared/sdk/services';
@@ -21,15 +21,6 @@ import { Establecimiento } from '../../shared/sdk/models';
 })
 export class DescriptionPage {
   slides = [
-    {
-      image: "http://elcuervoeventos.com/wp-content/uploads/2016/11/La-Sagrada-Tienda.png",
-    },
-    {
-      image: "assets/img/christian-gertenbach-192353.jpg",
-    },
-    {
-      image: "assets/img/christian-gertenbach-192353.jpg",
-    }
   ];
   
   configuration = [
@@ -82,7 +73,8 @@ export class DescriptionPage {
   constructor(public navCtrl: NavController, private photoViewer: PhotoViewer,
     private usuarioApi: UsuarioApi, public navParams: NavParams,
     private toastCtrl: ToastController, public modalCtrl: ModalController,
-    private establecimientoApi: EstablecimientoApi, private filter: FilterProvider) {
+    private establecimientoApi: EstablecimientoApi, private filter: FilterProvider,
+    private alertCtrl:AlertController) {
 
     LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
@@ -90,6 +82,7 @@ export class DescriptionPage {
     this.establecimientoApi.findById(this.filter.getEstablecimientoId()).subscribe((establecimiento: Establecimiento) => {
       console.log(establecimiento);
       this.establecimiento = establecimiento;
+      this.slides=establecimiento.images;
     });
 
     if (!usuarioApi.isAuthenticated()) {
@@ -108,7 +101,6 @@ export class DescriptionPage {
   presentToast(titulo, mensaje) {
     let toast = this.toastCtrl.create({
       message: titulo + ': \n' + mensaje,
-      duration: 3000,
       position: 'top',
       showCloseButton: true
     });
@@ -137,4 +129,19 @@ export class DescriptionPage {
     this.photoViewer.show(url);
 
   }
+  openModalMap() {
+    const myModal = this.modalCtrl.create('MapPage', this.establecimiento);
+    myModal.present();
+  }
+
+  presentAlert(titulo, mensaje) {
+  let alert = this.alertCtrl.create({
+    title: titulo,
+    subTitle: mensaje,
+    buttons: ['Entendido']
+    
+  });
+  alert.present();
+}
+
 }

@@ -128,6 +128,7 @@ export class SitioPage {
     */
   private listas: any;
   myIcon: string = "";
+  genero: String = "";
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -139,20 +140,28 @@ export class SitioPage {
 
     LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
+      this.genero = this.filter.getGenero();
 
-    establecimientoApi.find({ where: { categoriaId: this.filter.getCategoriaId(), zonaId: this.filter.getZonaId() } }).subscribe((sitios: any) => {
-      console.log(sitios);
-      this.listas = sitios
-    })
-
-
+     
+      
+      if(this.filter.getGenero() == null){
+          establecimientoApi.find({ where: { categoriaId: this.filter.getCategoriaId(), zonaId: this.filter.getZonaId() } }).subscribe((sitios: any) => {
+            console.log(sitios);
+            this.listas = sitios
+          });
+        }
+        else {
+          this.establecimientoApi.find({ where: { categoriaId: this.filter.getCategoriaId(), zonaId: this.filter.getZonaId(), music: this.filter.getGenero() } }).subscribe((sitios: any) => {
+          this.listas = sitios
+          });
+        }
+        
 
   }
 
   ionViewDidLoad() {
     this.selectUserIcon();
-
-    console.log(this.navParams.data);
+    console.log(this.filter.getGenero());
   }
 
 
