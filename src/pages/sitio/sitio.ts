@@ -158,6 +158,7 @@ export class SitioPage {
 
 
   nav(sitio) {
+    this.filter.setEstablecimiento(sitio.nombre);
     this.filter.setEstablecimientoId(sitio.id);
     this.navCtrl.push(DescriptionPage);
   }
