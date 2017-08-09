@@ -63,7 +63,24 @@
                 </ion-item>
                 </ion-list>
           </ion-col>
-        </ion-row>
+      </ion-row>
+         <ion-row>
+          <ion-col>
+          <ion-label>¿Deseas escuchar momentos?*</ion-label>
+          </ion-col>
+            <ion-col>
+              <ion-list radio-group [(ngModel)]="reserva.cumpleanos">
+                <ion-item>
+                  <ion-label>Si</ion-label>
+                  <ion-radio value="yes" checked></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+                </ion-list>
+          </ion-col>
+      </ion-row>
         </ion-grid>
     </div>
     <ion-item>
