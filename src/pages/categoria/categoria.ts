@@ -30,15 +30,6 @@ private categorias:any;
     },
     {
       image: "assets/img/BANER CATEGORIAS/fonda-bendito-seas.jpg",
-    },
-    {
-      image: "assets/img/BANER CATEGORIAS/la-sagrada.jpg",
-    },
-    {
-      image: "assets/img/BANER CATEGORIAS/logo-lico-deluxe-parque-lleras.jpg",
-    },
-    {
-      image: "assets/img/BANER CATEGORIAS/museums-schrank_018_0.jpg",
     }
 ];
    user
@@ -68,16 +59,12 @@ private categorias:any;
   }
 
   cambiarSlide(){
-    this.slide.slideNext();
+    this.slide.slideNext(2000, true);
   }
 
 
- 
- 
-
   toSectorPage(categoria) {
  this.filter.setCategoriaId(categoria.id)
-   // console.log(categoria.categoriaName);
     this.navCtrl.push(SectorPage)
   }
 
@@ -87,7 +74,6 @@ private categorias:any;
         if (this.myIcon == "ios-contact") {
           let confirm = this.alertCtrl.create({
           title: 'Quieres cerrar sesión?',
-          //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
           buttons: [
             {
               text: 'No',

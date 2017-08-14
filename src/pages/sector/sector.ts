@@ -23,38 +23,16 @@ import {InicioPage} from '../inicio/inicio'
 export class SectorPage {
   slides = [
     {
-      image: "assets/img/christian-gertenbach-192353.jpg",
+      image: "assets/img/BANER CATEGORIAS/basilica-medellin.jpg",
     },
     {
-      image: "assets/img/christian-gertenbach-192353.jpg",
+      image: "assets/img/BANER CATEGORIAS/ChtQDhdXAAA3Xq3.jpg",
     },
     {
-      image: "assets/img/christian-gertenbach-192353.jpg",
+      image: "assets/img/BANER CATEGORIAS/fonda-bendito-seas.jpg",
     }
-  ];
-
-  /*sectors = [
-      {
-        sectorName: "Envigado",
-        image: "assets/img/christian-gertenbach-192353.jpg",
-        
-      },
-      {
-        sectorName: "Sabaneta",
-        image: "assets/img/joseph-gonzalez-110827.jpg",
-      },
-      {
-        sectorName: "Poblado",
-        image: "assets/img/modesta-zemgulyte-194520.jpg",
-      },
-      {
-        sectorName: "Bello",
-        image: "assets/img/christian-gertenbach-192353.jpg",
-        
-      }
-    ];
-*/
-  private sectors: any;
+];
+private sectors: any;
   myIcon: string = "";
 
 
