@@ -67,14 +67,6 @@ private categorias:any;
     
   }
 
-  cambiarSlide(){
-    this.slide.slideNext();
-  }
-
-
- 
- 
-
   toSectorPage(categoria) {
  this.filter.setCategoriaId(categoria.id)
    // console.log(categoria.categoriaName);
