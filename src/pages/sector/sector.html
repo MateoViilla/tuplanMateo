@@ -18,7 +18,7 @@
 <ion-content   class="card-background-page" style="background-image:url('assets/img/background-categories.jpg');background-repeat: no-repeat;background-size: 100% 100%">
   <!-- slider https://github.com/ionic-team/ionic-preview-app/tree/master/src/pages/navigation/basic -->
   
-      <ion-slides pager>
+      <ion-slides pager autoplay="3000" loop="true" speed="1500">
         <ion-slide *ngFor="let slide of slides">
           <img [src]="slide.image" class="slide-image"/>
         </ion-slide>
@@ -32,7 +32,7 @@
      <img [src]="sector.img" class="slide-image"/>
         <!-- Photo by modesta-zemgulyte on Unsplash-->
         <div class="card-title">  {{sector.nombre}}</div>
-        <div class="card-subtitle">41 Listings</div>
+        <!-- <div class="card-subtitle">41 Listings</div> -->
     </ion-card>
 </div>
 

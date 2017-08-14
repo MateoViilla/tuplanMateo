@@ -58,11 +58,14 @@ private categorias:any;
     
   }
 
+<<<<<<< HEAD
   cambiarSlide(){
     this.slide.slideNext(2000, true);
   }
 
 
+=======
+>>>>>>> 4daa2ac2cdff439fe7c7254082ad24162b1e652d
   toSectorPage(categoria) {
  this.filter.setCategoriaId(categoria.id)
     this.navCtrl.push(SectorPage)
