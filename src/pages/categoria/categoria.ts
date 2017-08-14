@@ -23,34 +23,24 @@ export class CategoriaPage {
 private categorias:any;
   slides = [
     {
-      image: "assets/img/Slider1.jpg",
+      image: "assets/img/BANER CATEGORIAS/basilica-medellin.jpg",
     },
     {
-      image: "assets/img/Slider2.jpg",
+      image: "assets/img/BANER CATEGORIAS/ChtQDhdXAAA3Xq3.jpg",
     },
     {
-      image: "assets/img/Slider3.jpg",
+      image: "assets/img/BANER CATEGORIAS/fonda-bendito-seas.jpg",
+    },
+    {
+      image: "assets/img/BANER CATEGORIAS/la-sagrada.jpg",
+    },
+    {
+      image: "assets/img/BANER CATEGORIAS/logo-lico-deluxe-parque-lleras.jpg",
+    },
+    {
+      image: "assets/img/BANER CATEGORIAS/museums-schrank_018_0.jpg",
     }
 ];
-
-/*
-categorias  = [
-    {
-      categoriaName: "Restaurantes",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=1080"    },
-    {
-      categoriaName: "Bares",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=766"    },
-    
-    {
-      categoriaName: "Discotecas",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=274"    },
-    {
-      categoriaName: "Xtreme sports",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=773"    }
-];
-*/
-  
    user
 
    myIcon: string = "";
@@ -75,6 +65,10 @@ categorias  = [
   ionViewDidLoad() {
     this.selectUserIcon();
     
+  }
+
+  cambiarSlide(){
+    this.slide.slideNext();
   }
 
 
