@@ -5,7 +5,7 @@ import { UsuarioApi } from '../../shared/sdk/services';
 import { FilterProvider } from '../../providers/filter/filter';
 import { ZonaApi } from '../../shared/sdk/services';
 import { LoopBackConfig } from '../../shared/sdk';
-import {InicioPage} from '../inicio/inicio'
+import {InicioPage} from '../inicio/inicio';
 
 
 /**
@@ -22,14 +22,15 @@ import {InicioPage} from '../inicio/inicio'
 
 export class SectorPage {
   slides = [
+    
     {
-      image: "assets/img/BANER CATEGORIAS/basilica-medellin.jpg",
+      image: "assets/img/BANER CATEGORIAS/la-sagrada.jpg",
     },
     {
-      image: "assets/img/BANER CATEGORIAS/ChtQDhdXAAA3Xq3.jpg",
+      image: "assets/img/BANER CATEGORIAS/logo-lico-deluxe-parque-lleras.jpg",
     },
     {
-      image: "assets/img/BANER CATEGORIAS/fonda-bendito-seas.jpg",
+      image: "assets/img/BANER CATEGORIAS/museums-schrank_018_0.jpg",
     }
 ];
 private sectors: any;
@@ -69,38 +70,58 @@ private sectors: any;
   showConfirm() {
     if (this.myIcon == "ios-contact") {
       let confirm = this.alertCtrl.create({
-        title: 'Quieres cerrar sesión?',
-        //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
-        buttons: [
-          {
-            text: 'No',
-            handler: () => {
-            }
-          },
-          {
-            text: 'Si',
-            handler: () => {
-              this.navCtrl.push(InicioPage);
-              this.usuarioApi.logout();
-              console.log('Sesión cerrada');
-              this.showToast('bottom');
-            }
+      title: 'Quieres cerrar sesión?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
           }
-        ]
-      });
-      confirm.present();
+        },
+        {
+          text: 'Si',
+          handler: () => {
+            this.navCtrl.push(InicioPage);
+            this.usuarioApi.logout();
+            this.showToast('bottom');
+          }
+        }
+      ]
+     });
+    confirm.present();
     }
 
-    else {
-      let toast = this.toastCtrl.create({
-        message: 'Anónimo ;)',
-        duration: 2000,
-        position: 'bottom'
-      });
-      toast.present(toast);
-    }
+else {
 
-  }
+  let confirm = this.alertCtrl.create({
+    title: '¿Quieres ingresar?',
+    buttons: [
+      {
+        text: 'No',
+        handler: () => {
+        }
+      },
+      {
+        text: 'Si',
+        handler: () => {
+          this.navCtrl.push(InicioPage);
+        }
+      }
+    ]
+   });
+  confirm.present();
+
+
+
+  let toast = this.toastCtrl.create({
+  message: 'Anónimo ;)',
+  duration: 2000,
+  position: 'bottom'
+});
+toast.present(toast);
+
+}
+ 
+}
   showToast(position: string) {
     let toast = this.toastCtrl.create({
       message: this.navParams.get('userName') + 'Sesión cerrada con éxito',

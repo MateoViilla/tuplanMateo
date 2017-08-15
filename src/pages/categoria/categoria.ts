@@ -95,12 +95,34 @@ private categorias:any;
         }
 
     else {
+
+      let confirm = this.alertCtrl.create({
+        title: '¿Quieres ingresar?',
+        buttons: [
+          {
+            text: 'No',
+            handler: () => {
+            }
+          },
+          {
+            text: 'Si',
+            handler: () => {
+              this.navCtrl.push(InicioPage);
+            }
+          }
+        ]
+       });
+      confirm.present();
+
+
+
       let toast = this.toastCtrl.create({
       message: 'Anónimo ;)',
       duration: 2000,
       position: 'bottom'
     });
     toast.present(toast);
+    
     }
      
   }

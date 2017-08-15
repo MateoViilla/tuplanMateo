@@ -22,7 +22,7 @@ import { Establecimiento } from '../../shared/sdk/models';
 export class DescriptionPage {
   slides = [
   ];
-  
+  /*
   configuration = [
     {
       Image: "http://elcuervoeventos.com/wp-content/uploads/2016/11/La-Sagrada-Tienda.png",
@@ -68,7 +68,7 @@ export class DescriptionPage {
       TipoMoneda:"COP"
     }];
 
-
+*/
     comidas 
   private establecimiento: Establecimiento=new Establecimiento();
 
@@ -102,6 +102,10 @@ export class DescriptionPage {
   }
   ionViewDidLoad() {
     
+  }
+
+  cambiarSlide(){
+    this.slide.slideNext(3000, true);
   }
 
   slideChanged() {
