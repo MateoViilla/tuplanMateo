@@ -46,12 +46,24 @@
   </ion-card>
   <ion-label padding style="text-align:center" class="text-tittle-services">Precios</ion-label>
   <ion-list radio-group>
+      <ion-list-header>
+          Bebidas:
+        </ion-list-header>
     <ion-item>
-      <ion-label>Precio máximo: $ {{establecimiento.dmaxPrice}}</ion-label>
+      <ion-label>Máximo: $ {{establecimiento.dmaxPrice}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>Precio mínimo: $ {{establecimiento.dlowPrice}}</ion-label>
+      <ion-label>Mínimo: $ {{establecimiento.dlowPrice}}</ion-label>
     </ion-item>
+    <ion-list-header>
+        Comidas: {{comidas}}
+      </ion-list-header>
+  <ion-item>
+    <ion-label>Máximo: $ {{establecimiento.fmaxPrice}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Mínimo: $ {{establecimiento.flowPrice}}</ion-label>
+  </ion-item>
   </ion-list>
   <ion-grid>
     <ion-row>

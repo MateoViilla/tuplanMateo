@@ -15,7 +15,6 @@ import { InicioPage } from '../pages/inicio/inicio';
 
 import { DescriptionPage } from '../pages/description/description';
 import { BtnMagicoPage } from '../pages/boton-magico/btn_magico';
-import { BtnMagicoLugarPage } from '../pages/boton-magico-lugar/btn_magico_lugar';
 import { GlobalVarProvider } from '../providers/global-var/global-var';
 import { SDKBrowserModule } from '../shared/sdk/index';
 import { FilterProvider } from '../providers/filter/filter';
@@ -31,8 +30,7 @@ import { FilterProvider } from '../providers/filter/filter';
     SectorPage,
     SitioPage,
     DescriptionPage,
-    BtnMagicoPage,
-    BtnMagicoLugarPage
+    BtnMagicoPage
   ],
   imports: [
     BrowserModule,
@@ -42,8 +40,7 @@ import { FilterProvider } from '../providers/filter/filter';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    BtnMagicoLugarPage,    
+    MyApp,    
     RegistroPage,
     InicioPage,
     CategoriaPage,

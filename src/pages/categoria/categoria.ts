@@ -48,7 +48,6 @@ private categorias:any;
                 LoopBackConfig.setApiVersion('api');
 
   categoriaApi.find().subscribe((categorias:any)=>{
-  console.log(categorias);
   this.categorias=categorias});
   
     
@@ -87,7 +86,6 @@ private categorias:any;
               handler: () => {
                 this.navCtrl.push(InicioPage);
                 this.usuarioApi.logout();
-                console.log('Sesión cerrada');
                 this.showToast('bottom');
               }
             }

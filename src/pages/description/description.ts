@@ -67,6 +67,9 @@ export class DescriptionPage {
       PrecioCover:"10.000",
       TipoMoneda:"COP"
     }];
+
+
+    comidas 
   private establecimiento: Establecimiento=new Establecimiento();
 
   @ViewChild(Slides) slide: Slides;
@@ -85,18 +88,23 @@ export class DescriptionPage {
       this.slides=establecimiento.images;
     });
 
-    if (!usuarioApi.isAuthenticated()) {
-
-    }
+    this.validarComida();
+    
 
   }
 
+
+  validarComida(){
+    if(this.establecimiento.flowPrice == 0){
+      this.comidas  == "NO PRESTA SERVICIO";
+    }
+    
+  }
   ionViewDidLoad() {
+    
   }
 
   slideChanged() {
-    let currentIndex = this.slide.getActiveIndex();
-    console.log('Current index is', currentIndex);
   }
   presentToast(titulo, mensaje) {
     let toast = this.toastCtrl.create({
@@ -123,7 +131,7 @@ export class DescriptionPage {
   openModalNoAuth() {
     const myModal = this.modalCtrl.create('ModalNoAuthPage');
     myModal.present();
-  }
+  } 
 
   openPhoto(url) {
     this.photoViewer.show(url);
