@@ -49,17 +49,19 @@ private categorias:any;
 
   categoriaApi.find().subscribe((categorias:any)=>{
   console.log(categorias);
-  this.categorias=categorias})
+  this.categorias=categorias});
+  
     
   }
 
   ionViewDidLoad() {
     this.selectUserIcon();
     
+    
   }
 
   cambiarSlide(){
-    this.slide.slideNext(2000, true);
+    this.slide.slideNext(3000, true);
   }
 
 
