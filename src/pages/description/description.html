@@ -8,7 +8,7 @@
 <ion-content class="card-background-page">
   <!-- First item -->
 
-  <ion-slides pager full>
+  <ion-slides pager full autoplay="3000" loop="true" speed="1500">
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide" class="slide-image" style="width:100%;height:70%"/>
     </ion-slide>
