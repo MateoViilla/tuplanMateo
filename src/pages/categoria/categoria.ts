@@ -23,34 +23,15 @@ export class CategoriaPage {
 private categorias:any;
   slides = [
     {
-      image: "assets/img/Slider1.jpg",
+      image: "assets/img/BANER CATEGORIAS/basilica-medellin.jpg",
     },
     {
-      image: "assets/img/Slider2.jpg",
+      image: "assets/img/BANER CATEGORIAS/ChtQDhdXAAA3Xq3.jpg",
     },
     {
-      image: "assets/img/Slider3.jpg",
+      image: "assets/img/BANER CATEGORIAS/fonda-bendito-seas.jpg",
     }
 ];
-
-/*
-categorias  = [
-    {
-      categoriaName: "Restaurantes",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=1080"    },
-    {
-      categoriaName: "Bares",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=766"    },
-    
-    {
-      categoriaName: "Discotecas",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=274"    },
-    {
-      categoriaName: "Xtreme sports",
-      CategoriaImage: "https://unsplash.it/2000/608?blur&image=773"    }
-];
-*/
-  
    user
 
    myIcon: string = "";
@@ -77,13 +58,13 @@ categorias  = [
     
   }
 
+  cambiarSlide(){
+    this.slide.slideNext(2000, true);
+  }
 
- 
- 
 
   toSectorPage(categoria) {
  this.filter.setCategoriaId(categoria.id)
-   // console.log(categoria.categoriaName);
     this.navCtrl.push(SectorPage)
   }
 
@@ -93,7 +74,6 @@ categorias  = [
         if (this.myIcon == "ios-contact") {
           let confirm = this.alertCtrl.create({
           title: 'Quieres cerrar sesión?',
-          //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
           buttons: [
             {
               text: 'No',

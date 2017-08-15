@@ -21,111 +21,26 @@ import { LoopBackConfig } from '../../shared/sdk';
 })
 export class SitioPage {
 
-  /*Restaurants =[ 
-    {
-      Name: "Basílica",
-      descripcion: "Description of Basílica",
-      puntaje: 10,
-       image: "assets/img/modesta-zemgulyte-194520.jpg",
-    },
-    {
-      Name: "Al rojo",
-      descripcion: "Description of Al rojo",
-      puntaje: 18,
-       image: "assets/img/modesta-zemgulyte-194520.jpg",
-    },
-    {
-      Name: "Patria mía",
-      descripcion: "Description of Patria mía",
-      puntaje: 18,
-       image: "assets/img/modesta-zemgulyte-194520.jpg",
-    },
-    {
-      Name: "Ay Caramba",
-      descripcion: "Description of Ay Caramba",
-      puntaje: 18,
-       image: "assets/img/modesta-zemgulyte-194520.jpg",
-    },
-    {
-      Name: "Triada",
-      descripcion: "Description of Triada",
-      puntaje: 18,
-       image: "assets/img/modesta-zemgulyte-194520.jpg",
-    }
-
-  ];
-  
-  Bar = [
-    {
-      Name: "Locodeluxe",
-      descripcion: "Description of Locodeluxe",
-      puntaje: 10,
-       image: "assets/img/modesta-zemgulyte-194520.jpg",
-    },
-    {
-      Name: "Ocatavia",
-      descripcion: "Description of Ocatavia",
-      puntaje: 10,
-       image: "assets/img/modesta-zemgulyte-194520.jpg",
-    },
-  ]; */
-
-
   slides = [
     {
-      image: "https://unsplash.it/1000/800?image=892",
+      image: "assets/img/BANER CATEGORIAS/basilica-medellin.jpg",
     },
     {
-      image: "https://unsplash.it/1000/800?image=882",
+      image: "assets/img/BANER CATEGORIAS/ChtQDhdXAAA3Xq3.jpg",
     },
     {
-      image: "https://unsplash.it/1000/800?image=837",
+      image: "assets/img/BANER CATEGORIAS/fonda-bendito-seas.jpg",
+    },
+    {
+      image: "assets/img/BANER CATEGORIAS/la-sagrada.jpg",
+    },
+    {
+      image: "assets/img/BANER CATEGORIAS/logo-lico-deluxe-parque-lleras.jpg",
+    },
+    {
+      image: "assets/img/BANER CATEGORIAS/museums-schrank_018_0.jpg",
     }
-  ];
-  /*
-  
-    discotecas = [
-      {
-        Name: "Babylon",
-        descripcion: "Description of Babylon",
-        puntaje: 10,
-        image: "https://unsplash.it/200/300?image=1062",
-      },
-      {
-        Name: "Bendito Seas",
-        descripcion: "Description of Bendito Seas",
-        puntaje: 10,
-        image: "https://unsplash.it/200/300?image=1074",
-      },
-      {
-        Name: "Sixtina",
-        descripcion: "Description of Sixtina",
-        puntaje: 10,
-        image: "https://unsplash.it/200/300?image=1024",
-      }
-    ];
-  
-    Xtreme_sports = [
-      {
-        Name: "Parapente",
-        descripcion: "Description of Parapente",
-        puntaje: 10,
-        image: "https://unsplash.it/200/300?image=1062",
-      },
-      {
-        Name: "Paintball",
-        descripcion: "Description of Paintball",
-        puntaje: 10,
-        image: "https://unsplash.it/200/300?image=1074",
-      },
-      {
-        Name: "Cuatrimoto",
-        descripcion: "Description of Cuatrimoto",
-        puntaje: 10,
-        image: "https://unsplash.it/200/300?image=1024",
-      }
-    ];
-    */
+];
   private listas: any;
   myIcon: string = "";
   genero: String = "";

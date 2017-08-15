@@ -20,10 +20,10 @@
 </ion-header>
 
 
-<ion-content class="card-background-page" style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%">
+<ion-content class="card-background-page" style="background-image:url('assets/img/background-categories.jpg');background-repeat: no-repeat;background-size: 100% 100%">
   <!--<h1>El sector es:{{sector.value}}</h1>-->
 
-  <ion-slides pager full>
+  <ion-slides pager full autoplay="3000" loop="true" speed="1500">
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide.image" class="slide-image" />
     </ion-slide>

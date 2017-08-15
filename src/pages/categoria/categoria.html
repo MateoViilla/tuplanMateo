@@ -17,7 +17,7 @@
 
 
 
-<ion-content class="card-background-page"  style="background-image:url('https://unsplash.it/g/2200/4300?image=1067');background-repeat: no-repeat;background-size: 100% 100%;">
+<ion-content class="card-background-page"  style="background-image:url('assets/img/fondoMedellinByN.jpg');background-repeat: no-repeat;background-size: 100% 100%;">
 
       <ion-fab bottom right edge  style="margin-bottom:10%">
         <button ion-fab mini (click)="toBtnMagico()"><ion-icon name="star"></ion-icon></button>
@@ -26,20 +26,19 @@
       </ion-fab>
 
 
-      <ion-slides pager full>
-        <ion-slide *ngFor="let slide of slides">
+      <ion-slides pager full autoplay="3000" loop="true" speed="1500">
+        <ion-slide *ngFor="let slide of slides" >
           <img [src]="slide.image" class="slide-image"/>
         </ion-slide>
       </ion-slides>
 
-   <div full class="ion-card_ppal"> <div class="title_ppal"> Selecciona la categoria </div> </div>
+   <div full class="ion-card_ppal"> <div class="title_ppal"> Selecciona la categoría </div> </div>
     
 
   <div padding>
      <ion-card *ngFor="let categoria of categorias" (click)="toSectorPage(categoria)">
        
-     <img [src]="categoria.img" class="slide-image"/>
-        <!-- Photo by modesta-zemgulyte on Unsplash-->
+     <img [src]="categoria.img" class="slide-image" style="height:180%;width:100%"/>
         <div class="card-title">  {{categoria.nombre}}</div>
         <div class="card-subtitle">{{categoria.listing}}</div>
     </ion-card>
