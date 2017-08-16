@@ -1,13 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>TuPlan</name>
-<<<<<<< HEAD
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-=======
     <description>AticoStudios Creators</description>
     <author email="aticostudio69@gmail.com" href="http://ionicframework.com/">AticoStudios</author>
->>>>>>> 906e3fb6b162f7325c5d81a239b7146d1743f6f6
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
