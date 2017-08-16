@@ -48,18 +48,19 @@ private categorias:any;
                 LoopBackConfig.setApiVersion('api');
 
   categoriaApi.find().subscribe((categorias:any)=>{
-  console.log(categorias);
-  this.categorias=categorias})
+  this.categorias=categorias});
+  
     
   }
 
   ionViewDidLoad() {
     this.selectUserIcon();
     
+    
   }
 
   cambiarSlide(){
-    this.slide.slideNext(2000, true);
+    this.slide.slideNext(3000, true);
   }
 
 
@@ -85,7 +86,6 @@ private categorias:any;
               handler: () => {
                 this.navCtrl.push(InicioPage);
                 this.usuarioApi.logout();
-                console.log('Sesión cerrada');
                 this.showToast('bottom');
               }
             }
@@ -95,12 +95,34 @@ private categorias:any;
         }
 
     else {
+
+      let confirm = this.alertCtrl.create({
+        title: '¿Quieres ingresar?',
+        buttons: [
+          {
+            text: 'No',
+            handler: () => {
+            }
+          },
+          {
+            text: 'Si',
+            handler: () => {
+              this.navCtrl.push(InicioPage);
+            }
+          }
+        ]
+       });
+      confirm.present();
+
+
+
       let toast = this.toastCtrl.create({
       message: 'Anónimo ;)',
       duration: 2000,
       position: 'bottom'
     });
     toast.present(toast);
+    
     }
      
   }

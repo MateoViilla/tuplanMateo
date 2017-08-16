@@ -3,7 +3,6 @@ import { ZonaApi } from '../../shared/sdk/services';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CategoriaPage } from '../categoria/categoria';
-import { BtnMagicoLugarPage } from '../boton-magico-lugar/btn_magico_lugar';
 import { UsuarioApi } from '../../shared/sdk/services';
 import { EstablecimientoApi } from '../../shared/sdk/services';
 import { FilterProvider } from '../../providers/filter/filter';

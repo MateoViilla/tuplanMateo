@@ -23,16 +23,15 @@ export class HomePage {
     LoopBackConfig.setApiVersion('api');
 
   }
-    logForm() {
+  logForm() {
     console.log(this.user);
-  }
+}
 private signin(): void {
         this.usuarioApi.login(this.account).subscribe((token: AccessToken) => this.toCategories(), (error:any)=>this.presentToast(error) 
         );
         
     }
    public presentToast(error:any){
-     console.log(error);
       var err:any;
        if(error.statusCode==401){
          err="Usuario o Contraseña Incorrectos"
@@ -48,6 +47,8 @@ private signin(): void {
        toast.present();
 
     }
+
+    
   signUp(){
     this.navCtrl.push(RegistroPage);
   }

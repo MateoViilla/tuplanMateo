@@ -5,6 +5,8 @@ import { UsuarioApi } from '../../shared/sdk/services';
 import { EstablecimientoApi } from '../../shared/sdk/services';
 import { FilterProvider } from '../../providers/filter/filter';
 import { LoopBackConfig } from '../../shared/sdk';
+import { InicioPage } from '../inicio/inicio';
+
 
 
 
@@ -92,36 +94,58 @@ export class SitioPage {
   showConfirm() {
     if (this.myIcon == "ios-contact") {
       let confirm = this.alertCtrl.create({
-        title: 'Quieres cerrar sesión?',
-        //message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
-        buttons: [
-          {
-            text: 'No',
-            handler: () => {
-            }
-          },
-          {
-            text: 'Si',
-            handler: () => {
-              console.log('Sesión cerrada');
-              this.showToast('bottom');
-            }
+      title: 'Quieres cerrar sesión?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
           }
-        ]
-      });
-      confirm.present();
+        },
+        {
+          text: 'Si',
+          handler: () => {
+            this.navCtrl.push(InicioPage);
+            this.usuarioApi.logout();
+            this.showToast('bottom');
+          }
+        }
+      ]
+     });
+    confirm.present();
     }
 
-    else {
-      let toast = this.toastCtrl.create({
-        message: 'Anónimo ;)',
-        duration: 2000,
-        position: 'bottom'
-      });
-      toast.present(toast);
-    }
+else {
 
-  }
+  let confirm = this.alertCtrl.create({
+    title: '¿Quieres ingresar?',
+    buttons: [
+      {
+        text: 'No',
+        handler: () => {
+        }
+      },
+      {
+        text: 'Si',
+        handler: () => {
+          this.navCtrl.push(InicioPage);
+        }
+      }
+    ]
+   });
+  confirm.present();
+
+
+
+  let toast = this.toastCtrl.create({
+  message: 'Anónimo ;)',
+  duration: 2000,
+  position: 'bottom'
+});
+toast.present(toast);
+
+}
+ 
+}
 
   showToast(position: string) {
     let toast = this.toastCtrl.create({
