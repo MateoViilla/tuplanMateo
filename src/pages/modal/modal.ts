@@ -53,8 +53,7 @@ mostrar(){
 
         this.reserva.establecimiento=this.filter.getEstablecimiento();
         this.establecimientoApi.nuevaReserva(this.reserva).subscribe((mensaje: any) => {
-          console.log(mensaje);
-        alert(mensaje.greeting);    })
+        })
 
         this.toCategoria();
         this.presentAlert("Reserva exitosa", "Se ha procesado tu solicitud, en unas horas el establecimiento te confirmará la reserva");

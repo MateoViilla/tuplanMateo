@@ -23,10 +23,10 @@ export class CategoriaPage {
 private categorias:any;
   slides = [
     {
-      image: "assets/img/BANER CATEGORIAS/basilica-medellin.jpg",
+      image: "assets/img/BANER CATEGORIAS/ChtQDhdXAAA3Xq3.jpg",
     },
     {
-      image: "assets/img/BANER CATEGORIAS/ChtQDhdXAAA3Xq3.jpg",
+      image: "assets/img/BANER CATEGORIAS/basilica-medellin.jpg", 
     },
     {
       image: "assets/img/BANER CATEGORIAS/fonda-bendito-seas.jpg",

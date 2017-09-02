@@ -46,7 +46,7 @@ export class RegistroPage {
   private createMyForm(){
   return this.formBuilder.group({
 
-    name: ['', Validators.compose([Validators.maxLength(10),Validators.minLength(2), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+    name: ['', Validators.compose([Validators.maxLength(50),Validators.minLength(2), Validators.pattern('[a-zA-Z0-9 ]*'), Validators.required])],
     email : ['', [Validators.required, Validators.email]],
     dateBirth: [''],
     password: ['', [Validators.required,Validators.minLength(6), Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],

@@ -56,11 +56,12 @@ page-categoria{
 
         .ion-card_ppal {
             position: relative;
-            top: 1px;
+            top: 0px;
             text-align: center;
             height: 40px;
             width: relative;
-            background: linear-gradient(1deg, rgba(350, 350, 350, 0.4px), #003046);
+            background-color: #003046;
+            //background: linear-gradient(1deg, rgba(350, 350, 350, 0.4px), #003046);
             border-style: solid;
             border-width: 1px;
             border-top: none;
@@ -74,11 +75,11 @@ page-categoria{
             position: absolute;
             top:15%;
             font-size: 1.5em;
-            font-weight: bold;
+            //font-weight: bold;
             width: 100%;
             font-weight: lighter;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color:  #002636;
+           // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
             border-bottom-color: black rgba(100, 100, 100, 0.6px);
         }
         
