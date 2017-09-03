@@ -49,7 +49,8 @@ mostrar(){
         console.log(fechaFormulario);
         this.reserva.nombre=this.usuarioApi.getCachedCurrent().name;
         this.reserva.telefono=this.usuarioApi.getCachedCurrent().telefono;
-        this.reserva.email=this.usuarioApi.getCachedCurrent().email;
+        this.reserva.correo=this.usuarioApi.getCachedCurrent().email;
+        this.reserva.magico=this.usuarioApi.getCachedCurrent().code;
 
         this.reserva.establecimiento=this.filter.getEstablecimiento();
         this.establecimientoApi.nuevaReserva(this.reserva).subscribe((mensaje: any) => {

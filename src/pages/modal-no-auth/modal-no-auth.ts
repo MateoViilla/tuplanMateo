@@ -20,6 +20,7 @@ export class ModalNoAuthPage {
   constructor(public alertCtrl:AlertController ,public navCtrl: NavController,private filter: FilterProvider, public navParams: NavParams, private view: ViewController, private establecimientoApi: EstablecimientoApi) {
 this.reserva={};
 this.reserva.establecimiento="";
+this.reserva.magico="";
     LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
     
