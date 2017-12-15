@@ -23,7 +23,7 @@ export class RegistroPage {
     public toastCtrl: ToastController,
     public formBuilder: FormBuilder,
     private usuarioApi: UsuarioApi) {
-    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setBaseURL('https://tuplansrv.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
     this.myForm = this.createMyForm();
             console.log(this.usuarioApi.getCachedCurrent());

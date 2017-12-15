@@ -44,7 +44,7 @@ export class CategoriaPage {
     private usuarioApi: UsuarioApi,
     private categoriaApi: CategoriaApi,
     private filter: FilterProvider) {
-    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setBaseURL('https://tuplansrv.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
 
     categoriaApi.find().subscribe((categorias: any) => {

@@ -21,7 +21,7 @@ export class ModalNoAuthPage {
 this.reserva={};
 this.reserva.establecimiento="";
 this.reserva.magico="";
-    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setBaseURL('https://tuplansrv.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
     
     

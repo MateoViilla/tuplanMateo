@@ -21,7 +21,7 @@ import { CategoriaPage } from '../categoria/categoria';
 export class ModalPage {
   private reserva:any;
   constructor(public alertCtrl:AlertController ,public navCtrl: NavController,private filter: FilterProvider, public navParams: NavParams, private view: ViewController, private establecimientoApi: EstablecimientoApi,private usuarioApi: UsuarioApi) {
- LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+ LoopBackConfig.setBaseURL('https://tuplansrv.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
     this.reserva={};
     this.reserva.nombre=""

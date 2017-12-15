@@ -19,7 +19,7 @@ export class HomePage {
  private account:Usuario=new Usuario();
   constructor(public navCtrl: NavController,private usuarioApi:UsuarioApi,public toastCtrl: ToastController
 ) {
-    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setBaseURL('https://tuplansrv.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
 
   }

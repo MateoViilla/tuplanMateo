@@ -79,7 +79,7 @@ export class DescriptionPage {
     private establecimientoApi: EstablecimientoApi, private filter: FilterProvider,
     private alertCtrl:AlertController) {
 
-    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setBaseURL('https://tuplansrv.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
 
     this.establecimientoApi.findById(this.filter.getEstablecimientoId()).subscribe((establecimiento: Establecimiento) => {

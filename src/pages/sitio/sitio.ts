@@ -55,7 +55,7 @@ export class SitioPage {
     private establecimientoApi: EstablecimientoApi,
     private filter: FilterProvider) {
 
-    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setBaseURL('https://tuplansrv.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
       this.genero = this.filter.getGenero();
 

@@ -44,7 +44,7 @@ private sectors: any;
     private usuarioApi: UsuarioApi,
     private filter: FilterProvider,
     private zonaApi: ZonaApi) {
-    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setBaseURL('https://tuplansrv.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
 
     console.log(this.filter.getCategoriaId());

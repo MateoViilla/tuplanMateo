@@ -21,7 +21,7 @@ export class InicioPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioApi: UsuarioApi) {
 
-    LoopBackConfig.setBaseURL('https://tuplan.herokuapp.com');
+    LoopBackConfig.setBaseURL('https://tuplansrv.herokuapp.com');
     LoopBackConfig.setApiVersion('api');
     if (usuarioApi.isAuthenticated()) {
       this.navCtrl.push(CategoriaPage);
